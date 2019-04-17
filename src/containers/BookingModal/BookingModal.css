@@ -1,0 +1,22 @@
+.modal {
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 440px;
+  height: 475px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.flexRow {
+display: flex;
+justify-content: space-around;
+}
+
+button {
+  justify-content: flex-end;
+  border-radius: 5px;
+  width: 90px;
+  height: 40px;
+  text: white;
+  background-color: rgb(245, 50, 50);
+}
