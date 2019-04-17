@@ -6,11 +6,16 @@ import airbnb from '../../images/airbnb.png';
 const Navbar = () => {
   return (
     <div>
-      <div className='Navbar'>
+      <nav className='Navbar'>
         <div className='Logo'><img src={airbnb} /></div>
-        <div className='rightCorner'>Hello</div>
-        <div></div>
-      </div>
+        <div className='rightCorner'>
+          <div>Become a host</div>
+          <div>Help</div>
+          <div>Sign up</div>
+          <div>Login</div>
+        </div>
+
+      </nav>
     </div>
   );
 };

@@ -5,10 +5,13 @@ import './frontpage.css';
 class FrontPage extends Component {
 render() {
   return (
-  <div className='aboveFold'>
-    <Navbar />
-  </div>
-
+    <div>
+      <div className='hero'>
+    <Navbar/>
+         {/*<Navbar />*/}
+      </div>
+      <p>Hello</p>
+    </div>
 );
 }
 }
