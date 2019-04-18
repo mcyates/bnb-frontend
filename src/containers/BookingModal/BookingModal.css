@@ -13,10 +13,15 @@ justify-content: space-around;
 }
 
 button {
-  justify-content: flex-end;
   border-radius: 5px;
   width: 90px;
   height: 40px;
   text: white;
   background-color: rgb(245, 50, 50);
+}
+
+.buttonAlign{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 25px;
 }
