@@ -2,12 +2,22 @@ body {
   text: white;
 }
 
+p {
+  cursor: pointer;
+}
+
+
+
 .Navbar {
   display: flex;
   justify-content: space-between;
   height: 50px;
   border-bottom: hsla(192, 16%, 22%, 0.36);
-  border-bottom-style: solid;
+
+}
+.NavbarItems:hover {
+    border-bottom: white;
+    border-bottom-style: solid;
 }
 
 .Logo {

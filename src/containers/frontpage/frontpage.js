@@ -5,6 +5,10 @@ import BookingModal from '../BookingModal/BookingModal.js';
 import './frontpage.css';
 
 class FrontPage extends Component {
+  constructor() {
+    super();
+  }
+
 render() {
   return (
     <div>
