@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FrontPage from './containers/frontpage/frontpage';
+import FrontPage from './components/frontpage/frontpage';
 import './App.css';
 
 const initialState = {
