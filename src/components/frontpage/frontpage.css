@@ -1,0 +1,88 @@
+.hero {
+  background-image: url('../../images/hero.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+ .booking {
+  position: absolute;
+  top: 16%;
+  left: 8%;
+  width: 441px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 16px 40px;
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  padding: 32px 32px 24px;
+  word-wrap: break-word;
+  color: rgb(77, 77, 77);
+}
+
+ .input__where__container {
+
+ }
+
+ .input__check__container {
+  display: table-cell;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+ .input__guest__container {
+
+ }
+
+ .span-block {
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+ .booking__input:focus {
+  border: 1.4px solid rgb(42, 146, 134);
+}
+
+ .booking__input {
+  border-radius: 4px;
+  outline: none;
+  font-size: 16px;
+  line-height: 24px;
+  color: #484848;
+  font-weight: normal;
+  background-color: transparent;
+  border: 1.4px solid #d4d4d4;
+  padding: 11px 11px 11px 11px;
+  width: 100%;
+}
+
+ .input__check__container__item__left {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+ .input__check__container__item__right {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+ #input__search__container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+ #input__search__button {
+  padding: 12px 24px 12px 24px;
+  border-radius: 4px;
+  border-color: transparent;
+  color: #fff;
+  font-size: inherit;
+  cursor: pointer;
+  line-height: 24px;
+  font-weight: 700;
+  background: #FF5A5F;
+  outline: none;
+} 
