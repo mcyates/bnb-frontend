@@ -67,6 +67,29 @@
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
+.homesCard {
+  display: flex;
+  border: solid 1px;
+  border-color: rgb(166, 168, 181);
+  width: 300px;
+  height: 75px;
+  margin-bottom: 60px;
+}
+
+.airbnb_plus_image {
+  display: flex;
+  background-image: url('../../images/airbnb_plus_frontpage.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 45vh;
+}
+
+.airbnb_plus_image button {
+  height: 40px;
+  border-radius: 5px;
+}
 
  #input__search__container {
   display: flex;
@@ -85,4 +108,10 @@
   font-weight: 700;
   background: #FF5A5F;
   outline: none;
-} 
+}
+
+#treehouseImage {
+  width: 100px;
+  height: 75px;
+  margin-right: 15px;
+}

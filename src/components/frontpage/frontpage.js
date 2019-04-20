@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Navbar from '../Navbar/Navbar.js';
+import treehouse from '../../images/treehouse.jpg'
 import './frontpage.css';
 
  class FrontPage extends Component {
@@ -44,7 +45,14 @@ render() {
     <Navbar/>
          {/*<Navbar />*/}
       </div>
-      <p>Hello</p>
+
+
+
+      <h2>Explore Airbnb</h2>
+      <div className='homesCard'><img id='treehouseImage' src={treehouse} /><h3> Homes</h3></div>
+      <h2>Introducing Airbnb Plus</h2>
+      <p>A selection of homes verified for quality and optimal design</p>
+      <div className='airbnb_plus_image'><button>EXPLORE HOMES ></button></div>
     </div>
 );
 }
