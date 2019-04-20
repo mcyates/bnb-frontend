@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import Navbar from '../Navbar/Navbar.js';
-import treehouse from '../../images/treehouse.jpg'
+import treehouse from '../../images/treehouse.jpg';
+import tokyo from '../../images/tokyo.jpg';
+import vietnam from '../../images/vietnam.jpg';
+import bangkok from '../../images/bangkok.jpg';
+import medellin from '../../images/medellin.jpg';
+import washington from '../../images/washington_dc.jpg';
+
 import './frontpage.css';
 
  class FrontPage extends Component {
@@ -45,7 +51,7 @@ render() {
     <Navbar/>
          {/*<Navbar />*/}
       </div>
-
+    <div className='container'>
 
 
       <h2>Explore Airbnb</h2>
@@ -53,6 +59,16 @@ render() {
       <h2>Introducing Airbnb Plus</h2>
       <p>A selection of homes verified for quality and optimal design</p>
       <div className='airbnb_plus_image'><button>EXPLORE HOMES ></button></div>
+      <h2>Recommended for you</h2>
+      <div className='image_and_prices'>
+      <div><img src={tokyo} /></div>
+      <div><img src={vietnam} /></div>
+      <div><img src={bangkok} /></div>
+      <div><img src={medellin} /></div>
+      <div><img src={washington} /></div>
+      </div>
+
+    </div>
     </div>
 );
 }

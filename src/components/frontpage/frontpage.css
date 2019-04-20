@@ -73,22 +73,39 @@
   border-color: rgb(166, 168, 181);
   width: 300px;
   height: 75px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .airbnb_plus_image {
   display: flex;
   background-image: url('../../images/airbnb_plus_frontpage.png');
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   width: 100%;
   height: 45vh;
+  margin-bottom: 40px;
 }
 
 .airbnb_plus_image button {
   height: 40px;
   border-radius: 5px;
+}
+
+.image_and_prices {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.image_and_prices img {
+  height: 260px;
+  width: 150px;
+}
+
+.container {
+margin-left: 7%;
+margin-right: 7%;
 }
 
  #input__search__container {
