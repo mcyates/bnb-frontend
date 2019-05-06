@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import FrontPage from './components/frontpage/frontpage';
-import './App.css';
+import React, { Component } from "react";
+import FrontPage from "./components/frontpage/frontpage";
+import "./App.css";
 
 const initialState = {
-  route: 'signin',
+  route: "signin",
   isSignedIn: false,
   user: {
-    id: '',
-    name: '',
-    email: ''
+    id: "",
+    name: "",
+    email: ""
   }
 };
 
@@ -19,9 +19,9 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <React.Fragment>
         <FrontPage />
-      </div>
+      </React.Fragment>
     );
   }
 }

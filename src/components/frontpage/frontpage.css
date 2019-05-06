@@ -1,5 +1,7 @@
+/* Intro Section */
+
 .hero {
-  background-image: url('../../images/hero.jpg');
+  background-image: url("../../images/airbnb-hero.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -7,7 +9,7 @@
   width: 100%;
 }
 
- .booking {
+.booking {
   position: absolute;
   top: 16%;
   left: 8%;
@@ -15,37 +17,35 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 16px 40px;
   background: rgb(255, 255, 255);
   border-radius: 4px;
-  padding: 32px 32px 24px;
+  padding: 24px 32px 24px;
   word-wrap: break-word;
-  color: rgb(77, 77, 77);
+  color: inherit;
 }
 
- .input__where__container {
+.input__where__container {
+}
 
- }
-
- .input__check__container {
+.input__check__container {
   display: table-cell;
   margin-bottom: 8px;
   margin-top: 8px;
 }
 
- .input__guest__container {
+.input__guest__container {
+}
 
- }
-
- .span-block {
+.span-block {
   display: block;
   margin-bottom: 8px;
   margin-top: 8px;
   text-transform: uppercase;
 }
 
- .booking__input:focus {
+.booking__input:focus {
   border: 1.4px solid rgb(42, 146, 134);
 }
 
- .booking__input {
+.booking__input {
   border-radius: 4px;
   outline: none;
   font-size: 16px;
@@ -54,67 +54,27 @@
   font-weight: normal;
   background-color: transparent;
   border: 1.4px solid #d4d4d4;
-  padding: 11px 11px 11px 11px;
+  padding: 11px;
   width: 100%;
 }
 
- .input__check__container__item__left {
+.input__check__container__item__left {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 
- .input__check__container__item__right {
+.input__check__container__item__right {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
-.homesCard {
-  display: flex;
-  border: solid 1px;
-  border-color: rgb(166, 168, 181);
-  width: 300px;
-  height: 75px;
-  margin-bottom: 40px;
-}
 
-.airbnb_plus_image {
-  display: flex;
-  background-image: url('../../images/airbnb_plus_frontpage.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 45vh;
-  margin-bottom: 40px;
-}
-
-.airbnb_plus_image button {
-  height: 40px;
-  border-radius: 5px;
-}
-
-.image_and_prices {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
-}
-
-.image_and_prices img {
-  height: 260px;
-  width: 150px;
-}
-
-.container {
-margin-left: 7%;
-margin-right: 7%;
-}
-
- #input__search__container {
+#input__search__container {
   display: flex;
   justify-content: flex-end;
   margin-top: 16px;
 }
 
- #input__search__button {
+#input__search__button {
   padding: 12px 24px 12px 24px;
   border-radius: 4px;
   border-color: transparent;
@@ -123,12 +83,240 @@ margin-right: 7%;
   cursor: pointer;
   line-height: 24px;
   font-weight: 700;
-  background: #FF5A5F;
+  background: #ff5a5f;
   outline: none;
 }
 
-#treehouseImage {
+/* Explore Section */
+
+.homesCard {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 75px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
+  margin: 1% 0 2.5% 0;
+}
+
+#airbnbhomeImage {
   width: 100px;
   height: 75px;
   margin-right: 15px;
+  object-fit: cover;
+}
+
+.airbnb-plus-intro-text {
+  margin: 1% 0 1% 0;
+}
+
+.airbnb-plus-intro-heading {
+  margin: 0.5% 0 0.5% 0;
+}
+
+.airbnb_plus_image_container {
+  position: relative;
+  background-image: url("../../images/airbnb-plus-intro.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 62vh;
+  margin: 1% 0 1% 0;
+  border-radius: 5px;
+}
+
+.airbnb_plus_image_container button {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px 20px 30px;
+  border-radius: 5px;
+  color: #484848;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.airbnb_plus_image {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15rem;
+}
+
+.fa-explore-button {
+  margin-left: 5px;
+}
+
+/* Image Grid in Explore Section */
+
+.grid_image_and_prices_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+  justify-items: center;
+  margin: 2% 0 2% 0;
+}
+
+.grid_image_and_prices_item {
+  position: relative;
+}
+
+.grid_image_and_prices_container img {
+  max-height: 300px;
+  max-width: 300px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 5px;
+  filter: drop-shadow(10px 10px 6px rgba(0, 0, 0, 0.2));
+}
+
+.grid_image_and_prices_text__container {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.4);
+}
+
+.container {
+  margin: 1% 7% 1% 7%;
+}
+
+/* Banner Section */
+
+.banner-experiences_container {
+  position: relative;
+  background-image: url("../../images/banner-experiences.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  width: 100%;
+  height: 45vh;
+  margin: 2% 0 2% 0;
+  overflow: hidden;
+}
+
+.banner-experiences_container button {
+  padding: 15px 25px 15px 25px;
+  border-radius: 5px;
+  color: #484848;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 1% 0 1% 0;
+}
+
+.banner-experiences_content {
+  position: absolute;
+  top: 50%;
+  left: 18%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  width: 25%;
+  color: #fff;
+}
+
+.banner-experiences-airbnb-logo {
+  color: inherit;
+  width: 26px;
+  height: 26px;
+  vertical-align: middle;
+}
+
+.banner-experiences-h4 {
+  display: inline;
+  vertical-align: middle;
+  margin-left: 5px;
+  color: inherit;
+  font-size: 14px;
+  letter-spacing: 0.0714286em;
+  text-transform: uppercase;
+}
+
+.banner-experiences-h3 {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 500;
+  margin: 0.5% 0 5% 0;
+}
+
+.banner-experiences-h2 {
+  font-size: 30px;
+  line-height: 34px;
+  margin: 0.5% 0 0.5% 0;
+}
+
+.banner-experiences-headers {
+  overflow-wrap: break-word;
+  margin-top: 10px;
+}
+
+/* Homes around the world */
+
+.HATW_title_link {
+  color: rgb(72, 72, 72);
+  text-decoration: none;
+}
+
+.HATW_title_link span {
+  opacity: 0;
+  transition: opacity .3s ease-out;
+}
+
+.HATW_title_link:hover span {
+  opacity: 1;
+}
+
+.grid_homes_around_the_world_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  justify-items: center;
+  margin: 1% 0 1% 0;
+}
+
+.grid_homes_around_the_world_item {
+  
+}
+
+.grid_homes_around_the_world_item img {
+  max-height: 300px;
+  max-width: 300px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 5px;
+  filter: drop-shadow(10px 10px 6px rgba(0, 0, 0, 0.2));
+}
+
+.grid_homes_around_the_world_text__container {
+
+}
+
+.grid_homes_around_the_world_text__h5 {
+  color: rgb(118, 118, 118);
+  text-transform: uppercase;
+}
+
+.grid_homes_around_the_world_text__h3 {
+  color: rgb(72, 72, 72);
+  font-weight: 500;
 }
