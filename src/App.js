@@ -1,30 +1,29 @@
 import React, { Component } from "react";
-import FrontPage from "./components/frontpage/frontpage";
+import AppRouter from "./router/AppRouter";
 import "./App.css";
 
 const initialState = {
-  route: "signin",
-  isSignedIn: false,
-  user: {
-    id: "",
-    name: "",
-    email: ""
-  }
+	route: "signin",
+	isSignedIn: false,
+	user: {
+		id: "",
+		name: "",
+		email: ""
+	}
 };
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = initialState;
-  }
-  render() {
-    return (
-      <React.Fragment>
-        <FrontPage />
-      </React.Fragment>
-    );
-  }
+	constructor() {
+		super();
+		this.state = initialState;
+	}
+	render() {
+		return (
+			<React.Fragment>
+				<AppRouter />
+			</React.Fragment>
+		);
+	}
 }
-
 
 export default App;
