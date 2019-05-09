@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from '@reach/router';
 import "./Navbar.css";
 import airbnbsvg from "../../images/airbnb.svg";
 
@@ -9,10 +10,10 @@ const Navbar = () => {
         <img className="Logo" src={airbnbsvg} alt="airbnb-logo" />
       </a>
       <ul className="rightCorner">
-        <li>Become a host</li>
-        <li>Help</li>
-        <li>Sign up</li>
-        <li>Log in</li>
+        <Link to="/" >Become a host</Link>
+        <Link to="/" >Help</Link>
+        <Link to="/register" >Sign up</Link>
+        <Link to="login" >Log in</Link>
       </ul>
     </nav>
   );

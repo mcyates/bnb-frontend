@@ -8,7 +8,7 @@ import { ApolloProvider } from "react-apollo";
 
 import App from "./App";
 
-const URI = "http://localhost:4000";
+const URI = "http://localhost:4000/";
 
 const link = createUploadLink({
 	uri: URI
@@ -29,9 +29,14 @@ const client = new ApolloClient({
 	link: authLink.concat(link),
 	cache: new InMemoryCache(),
 	clientState: {
-		defaults: {},
-		resolvers: {},
-		typeDefs: ``
+		defaults: {
+			user: {},
+			listings: []
+		},
+    typeDefs: `
+
+    `,
+		resolvers: {}
 	}
 });
 
