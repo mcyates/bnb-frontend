@@ -3,6 +3,7 @@ import { Mutation } from "react-apollo";
 import { navigate } from "@reach/router";
 
 import { REGISTER } from "../../mutations/register";
+import Navbar from "../Navbar/Navbar";
 
 export const RegistrationPage = () => {
 	let nameInput, emailInput, passwordInput;
@@ -20,6 +21,7 @@ export const RegistrationPage = () => {
 		>
 			{(createUser, { loading, error }) => (
 				<>
+					<Navbar />
 					<h2>Registration page</h2>
 					<form
 						onSubmit={(e) => {
