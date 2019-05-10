@@ -25,20 +25,19 @@ const authLink = setContext((_, { headers }) => {
 	};
 });
 
-const client = new ApolloClient({
-	link: authLink.concat(link),
-	cache: new InMemoryCache(),
-	clientState: {
-		defaults: {
-			user: {},
-			listings: []
-		},
-    typeDefs: `
+const cache = new InMemoryCache();
 
-    `,
-		resolvers: {}
+const client = new ApolloClient({
+	cache,
+	link: authLink.concat(link)
+});
+
+client.writeData({
+	data: {
+		isAuthed: !!localStorage.getItem("token")
 	}
 });
+
 
 ReactDOM.render(
 	<ApolloProvider client={client}>
