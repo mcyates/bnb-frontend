@@ -1,12 +1,13 @@
 import React from "react";
 import { Mutation, ApolloConsumer } from "react-apollo";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
-import { REGISTER } from "../../mutations/register";
 import Navbar from "../Navbar/Navbar";
+import { REGISTER } from "../../mutations/register";
+import { registrationValidationSchema } from "../../yup/Schema";
 
 export const RegistrationPage = () => {
-	let nameInput, emailInput, passwordInput;
 	return (
 		<ApolloConsumer>
 			{(client) => (
@@ -19,7 +20,7 @@ export const RegistrationPage = () => {
 								isAuthed: true
 							}
 						});
-						navigate(`/`);
+						navigate(`/dashboard`);
 					}}
 					onError={(error) => {
 						console.log(error);
@@ -29,54 +30,47 @@ export const RegistrationPage = () => {
 						<>
 							<Navbar />
 							<h2>Registration page</h2>
-							<form
-								onSubmit={(e) => {
-									e.preventDefault();
+							<Formik
+								initialValues={{ name: "", email: "", password: "" }}
+								validationSchema={registrationValidationSchema}
+								onSubmit={(values, { setSubmitting }) => {
 									createUser({
 										variables: {
 											data: {
-												name: nameInput.value,
-												email: emailInput.value,
-												password: passwordInput.value
+												name: values.name,
+												email: values.email,
+												password: values.password
 											}
 										}
 									});
+									setTimeout(() => {
+										setSubmitting(false);
+									}, 400);
 								}}
-							>
-								<label htmlFor="name">Username</label>
-								<input
-									type="text"
-									placeholder="name"
-									autoComplete="username"
-									autoFocus
-									name="name"
-									ref={(node) => {
-										nameInput = node;
-									}}
-								/>
-								<label htmlFor="email">email</label>
-								<input
-									type="email"
-									placeholder="email"
-									autoComplete="email"
-									name="email"
-									ref={(node) => {
-										emailInput = node;
-									}}
-								/>
-								<label htmlFor="Password">Name</label>
-								<input
-									type="password"
-									placeholder="password"
-									autoComplete="current-password"
-									name="password"
-									minLength="8"
-									ref={(node) => {
-										passwordInput = node;
-									}}
-								/>
-								<button type="submit">Register</button>
-							</form>
+								render={({ isSubmitting }) => (
+									<Form>
+										<label htmlFor="email">Email</label>
+										<Field type="email" name="email" autoComplete="email" />
+										<ErrorMessage name="email" component="div" />
+
+										<label htmlFor="name">Username</label>
+										<Field type="text" name="name" autoComplete="name" />
+										<ErrorMessage name="name" component="div" />
+
+										<label htmlFor="password">Password</label>
+										<Field
+											type="password"
+											name="password"
+											autoComplete="current-password"
+										/>
+										<ErrorMessage name="password" component="div" />
+
+										<button type="submit" disabled={isSubmitting}>
+											Submit
+										</button>
+									</Form>
+								)}
+							/>
 							{loading && <p>Loading...</p>}
 							{error && <p>Error</p>}
 						</>
