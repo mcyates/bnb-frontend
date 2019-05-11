@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import "./Navbar.css";
 import airbnbsvg from "../../images/airbnb.svg";
-import Logout from "../logout/logout";
+import Logout from "../Logout/logout";
 import { Query } from "react-apollo";
 import { authQuery } from "../../localstore/isAuthed";
 

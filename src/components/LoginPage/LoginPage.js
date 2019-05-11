@@ -5,29 +5,27 @@ import { navigate } from "@reach/router";
 
 import Navbar from "../Navbar/Navbar";
 import { LOGIN } from "../../mutations/login";
-import {LoginValidationSchema} from '../../yup/Schema';
+import { LoginValidationSchema } from "../../yup/Schema";
 
-export const LoginPage = () => {
-	let emailInput, passwordInput;
-	return (
-		<ApolloConsumer>
-			{(client) => (
-				<Mutation
-					mutation={LOGIN}
-					onCompleted={(e) => {
-						localStorage.setItem("token", e.loginUser.token);
-						client.writeData({
-							data: {
-								isAuthed: true
-							}
-						});
-						navigate("/dashboard");
-					}}
-				>
-					{(loginUser, { loading, error }) => (
-						<>
-							<Navbar />
-							<Formik
+export const LoginPage = () => (
+	<ApolloConsumer>
+		{(client) => (
+			<Mutation
+				mutation={LOGIN}
+				onCompleted={(e) => {
+					localStorage.setItem("token", e.loginUser.token);
+					client.writeData({
+						data: {
+							isAuthed: true
+						}
+					});
+					navigate("/dashboard");
+				}}
+			>
+				{(loginUser, { loading, error }) => (
+					<>
+						<Navbar />
+						<Formik
 							initialValues={{ email: "", password: "" }}
 							validationSchema={LoginValidationSchema}
 							onSubmit={(values, { setSubmitting }) => {
@@ -43,34 +41,32 @@ export const LoginPage = () => {
 									setSubmitting(false);
 								}, 400);
 							}}
-							render={({isSubmitting}) => (
+							render={({ isSubmitting }) => (
 								<Form>
-								<label htmlFor="email">Email</label>
-								<Field type="email" name="email" autoComplete="email" />
-								<ErrorMessage name="email" component="div" />
-					
-								<label htmlFor="password">Password</label>
-								<Field
-									type="password"
-									name="password"
-									autoComplete="current-password"
-								/>
-								<ErrorMessage name="password" component="div" />
-					
-								<button type="submit" disabled={isSubmitting}>
-									Submit
-								</button>
+									<label htmlFor="email">Email</label>
+									<Field type="email" name="email" autoComplete="email" />
+									<ErrorMessage name="email" component="div" />
+
+									<label htmlFor="password">Password</label>
+									<Field
+										type="password"
+										name="password"
+										autoComplete="current-password"
+									/>
+									<ErrorMessage name="password" component="div" />
+
+									<button type="submit" disabled={isSubmitting}>
+										Login
+									</button>
 								</Form>
 							)}
 						/>
-							{loading && <p>Loading...</p>}
-							{error && <p>Error</p>}
-						</>
-					)}
-				</Mutation>
-			)}
-		</ApolloConsumer>
-	);
-};
-
+						{loading && <p>Loading...</p>}
+						{error && <p>Error</p>}
+					</>
+				)}
+			</Mutation>
+		)}
+	</ApolloConsumer>
+);
 export default LoginPage;

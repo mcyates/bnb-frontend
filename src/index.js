@@ -11,7 +11,8 @@ import App from "./App";
 const URI = "http://localhost:4000/";
 
 const link = createUploadLink({
-	uri: URI
+	uri: URI,
+	credentials: "include"
 });
 
 const authLink = setContext((_, { headers }) => {
