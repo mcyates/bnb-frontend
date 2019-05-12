@@ -3,7 +3,6 @@ import { Mutation, ApolloConsumer } from "react-apollo";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
-import Navbar from "../Navbar/Navbar";
 import { REGISTER } from "../../mutations/register";
 import { registrationValidationSchema } from "../../yup/Schema";
 
@@ -27,7 +26,6 @@ export const RegistrationPage = () => (
 			>
 				{(createUser, { loading, error }) => (
 					<>
-						<Navbar />
 						<h2>Registration page</h2>
 						<Formik
 							initialValues={{ name: "", email: "", password: "" }}

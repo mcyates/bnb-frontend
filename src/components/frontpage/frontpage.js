@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Navbar from "../Navbar/Navbar.js";
 import airbnbplussvg from "../../images/airbnb-plus.svg";
 import airbnbsvg from "../../images/airbnb.svg";
 import airbnbhomes from "../../images/airbnb-homes.jpg";
@@ -21,10 +20,9 @@ import HATW4 from "../../images/Homes Around The World/d7329e9a_original.jpg";
 class FrontPage extends Component {
   render() {
     return (
-      <div>
+      <>
         {/* Intro Section */}
         <div className="hero">
-          <Navbar />
           <div className="booking">
             <h1>Book unique homes and experiences.</h1>
 
@@ -233,7 +231,7 @@ class FrontPage extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

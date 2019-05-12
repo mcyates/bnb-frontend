@@ -7,9 +7,12 @@ import FrontPage from "../components/Frontpage/frontpage";
 import RegistrationPage from "../components/RegistrationPage/RegistrationPage";
 import LoginPage from "../components/LoginPage/LoginPage";
 import NotFound from "../components/NotFound/NotFound";
+import Navbar from "../components/Navbar/Navbar";
 
 const AppRouter = () => (
-	<Router>
+	<>
+	<Navbar />
+	<Router className="app">
 		<NotFound default />
 		<FrontPage path="/" />
 		<Dashboard path="/dashboard" />
@@ -17,6 +20,7 @@ const AppRouter = () => (
 		<LoginPage path="/login" />
 		<CreateListingPage path="/createListing" />
 	</Router>
+	</>
 );
 
 export default AppRouter;

@@ -3,7 +3,6 @@ import { ApolloConsumer, Mutation } from "react-apollo";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
-import Navbar from "../Navbar/Navbar";
 import { CREATELISTING } from "../../mutations/createListing";
 import { CreateListingValidationSchema } from "../../yup/Schema";
 
@@ -18,7 +17,6 @@ const CreateListingPage = () => (
   >
     {(createListing, { loading, error }) => (
       <>
-        <Navbar />
         <Formik
           initialValues={{
             name: "",
