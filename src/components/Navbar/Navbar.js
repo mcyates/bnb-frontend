@@ -11,7 +11,7 @@ const Navbar = () => {
     <Query query={authQuery}>
     {({data: {isAuthed}}) => (
       <nav className="Navbar">
-      <Link to="/">
+      <Link className="link--logo" to="/">
         <img className="Logo" src={airbnbsvg} alt="airbnb-logo" />
       </Link>
       <ul className="rightCorner">

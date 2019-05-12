@@ -20,8 +20,8 @@ export const RegistrationPage = () => (
 					});
 					navigate(`/dashboard`);
 				}}
-				onError={(error) => {
-					console.log(error);
+				onError={(error, ...rest) => {
+					console.log(rest);
 				}}
 			>
 				{(createUser, { loading, error }) => (

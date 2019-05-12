@@ -1,41 +1,30 @@
-li {
-  cursor: pointer;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1;
-  padding: 15px 15px 45px 15px;
-  border-bottom: 2px solid transparent;
-}
 
- li:hover {
-  border-bottom: 2px solid #fff;
-}
-
- .Navbar {
-  display: flex;
-  justify-content: space-between;
-  height: 50px;
+.Navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 50px;
   width: 99vw;
-  z-index: 10;
-  position: absolute;
+  padding-bottom: 1rem;
+	z-index: 10;
 }
 
- .Logo {
-  margin-left: 20px;
-  display: flex;
-  align-content: flex-start;
-  color: #fff;
-  width: 35px;
-  cursor: pointer;
-  margin-top: 15px;
+.link--logo {
+  width: 2.5rem;
+  align-self: flex-end;
 }
 
- .rightCorner {
-  width: 60%;
-  display: flex;
-  justify-content: flex-end;
-  align-content: center;
-  color: #fff;
-  margin-right: 10px;
-  list-style: none;
+.Logo {
+	color: #fff;
+	width: 100%;
+	cursor: pointer;
+}
+
+.rightCorner {
+	width: 60%;
+	display: flex;
+	justify-content: flex-end;
+	align-content: center;
+	color: #fff;
+	list-style: none;
 }

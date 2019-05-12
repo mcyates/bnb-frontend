@@ -20,7 +20,7 @@ import HATW4 from "../../images/Homes Around The World/d7329e9a_original.jpg";
 class FrontPage extends Component {
   render() {
     return (
-      <>
+      <div className="front">
         {/* Intro Section */}
         <div className="hero">
           <div className="booking">
@@ -231,7 +231,7 @@ class FrontPage extends Component {
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

@@ -12,7 +12,6 @@ const URI = "http://localhost:4000/";
 
 const link = createUploadLink({
 	uri: URI,
-	credentials: "include"
 });
 
 const authLink = setContext((_, { headers }) => {

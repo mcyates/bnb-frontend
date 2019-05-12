@@ -1,4 +1,18 @@
 /* Intro Section */
+.app {
+  margin: 0;
+}
+
+.front {
+  position: absolute;
+  /* width: 98vw; */
+  width: 100%;
+  max-width: 99.1vw;
+  /* margin-left: 1vw; */
+  margin-top: -2vw;
+  z-index: -1;
+  overflow: hidden;
+}
 
 .hero {
   background-image: url("../../images/airbnb-hero.jpg");
@@ -6,24 +20,23 @@
   background-position: center center;
   background-size: cover;
   height: 100vh;
-  width: 100%;
-  z-index: 1;
+  width: auto;
+  overflow: hidden;
+  /* position: absolute; */
 }
 
 .booking {
   position: absolute;
   top: 16%;
   left: 8%;
-  width: 441px;
+  width: 20vw;
+  max-width: 441px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 16px 40px;
   background: rgb(255, 255, 255);
   border-radius: 4px;
   padding: 24px 32px 24px;
   word-wrap: break-word;
   color: inherit;
-}
-
-.input__where__container {
 }
 
 .input__check__container {
