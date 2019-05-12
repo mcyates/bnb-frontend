@@ -9,10 +9,10 @@ export const Logout = () => (
 				onClick={() => {
 					localStorage.setItem("token", "");
 					client.writeData({
-					  data: {
-					    isAuthed: false
-					  }
-					})
+						data: {
+							isAuthed: false
+						}
+					});
 					navigate("/");
 				}}
 			>

@@ -1,74 +1,72 @@
 import React from "react";
 import { Mutation, ApolloConsumer } from "react-apollo";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
 import Navbar from "../Navbar/Navbar";
 import { LOGIN } from "../../mutations/login";
+import { LoginValidationSchema } from "../../yup/Schema";
 
-export const LoginPage = () => {
-	let emailInput, passwordInput;
-	return (
-		<ApolloConsumer>
-			{(client) => (
-				<Mutation
-					mutation={LOGIN}
-					onCompleted={(e) => {
-						localStorage.setItem("token", e.loginUser.token);
-						client.writeData({
-							data: {
-								isAuthed: true
-							}
-						});
-						navigate("/");
-					}}
-				>
-					{(loginUser, { loading, error }) => (
-						<>
-							<Navbar />
-							<form
-								onSubmit={(e) => {
-									e.preventDefault();
-									loginUser({
-										variables: {
-											data: {
-												email: emailInput.value,
-												password: passwordInput.value
-											}
+export const LoginPage = () => (
+	<ApolloConsumer>
+		{(client) => (
+			<Mutation
+				mutation={LOGIN}
+				onCompleted={(e) => {
+					localStorage.setItem("token", e.loginUser.token);
+					client.writeData({
+						data: {
+							isAuthed: true
+						}
+					});
+					navigate("/dashboard");
+				}}
+			>
+				{(loginUser, { loading, error }) => (
+					<>
+						<Navbar />
+						<Formik
+							initialValues={{ email: "", password: "" }}
+							validationSchema={LoginValidationSchema}
+							onSubmit={(values, { setSubmitting }) => {
+								loginUser({
+									variables: {
+										data: {
+											email: values.email,
+											password: values.password
 										}
-									});
-								}}
-							>
-								<label htmlFor="email">email</label>
-								<input
-									type="email"
-									placeholder="email"
-									autoComplete="email"
-									name="email"
-									ref={(node) => {
-										emailInput = node;
-									}}
-								/>
-								<label htmlFor="Password">Name</label>
-								<input
-									type="password"
-									placeholder="password"
-									autoComplete="current-password"
-									name="password"
-									minLength="8"
-									ref={(node) => {
-										passwordInput = node;
-									}}
-								/>
-								<button type="submit">Login</button>
-							</form>
-							{loading && <p>Loading...</p>}
-							{error && <p>Error</p>}
-						</>
-					)}
-				</Mutation>
-			)}
-		</ApolloConsumer>
-	);
-};
+									}
+								});
+								setTimeout(() => {
+									setSubmitting(false);
+								}, 400);
+							}}
+							render={({ isSubmitting }) => (
+								<Form>
+									<label htmlFor="email">Email</label>
+									<Field type="email" name="email" autoComplete="email" />
+									<ErrorMessage name="email" component="div" />
 
+									<label htmlFor="password">Password</label>
+									<Field
+										type="password"
+										name="password"
+										autoComplete="current-password"
+									/>
+									<ErrorMessage name="password" component="div" />
+
+									<button type="submit" disabled={isSubmitting}>
+										Login
+									</button>
+								</Form>
+							)}
+						/>
+						{loading && <p>Loading...</p>}
+						{error && <p>Error</p>}
+					</>
+				)}
+			</Mutation>
+		)}
+	</ApolloConsumer>
+);
 export default LoginPage;

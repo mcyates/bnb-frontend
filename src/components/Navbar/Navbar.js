@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import "./Navbar.css";
 import airbnbsvg from "../../images/airbnb.svg";
-import Logout from "../logout/logout";
+import Logout from "../Logout/logout";
 import { Query } from "react-apollo";
 import { authQuery } from "../../localstore/isAuthed";
 
@@ -11,12 +11,10 @@ const Navbar = () => {
     <Query query={authQuery}>
     {({data: {isAuthed}}) => (
       <nav className="Navbar">
-      <a href="/">
+      <Link to="/">
         <img className="Logo" src={airbnbsvg} alt="airbnb-logo" />
-      </a>
+      </Link>
       <ul className="rightCorner">
-        <Link to="/">Become a host</Link>
-        <Link to="/">Help</Link>
         {
           isAuthed ? (
             <Logout />
