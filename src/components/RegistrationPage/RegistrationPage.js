@@ -3,6 +3,7 @@ import { Mutation, ApolloConsumer } from "react-apollo";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
+
 import { REGISTER } from "../../mutations/register";
 import { registrationValidationSchema } from "../../yup/Schema";
 
@@ -22,6 +23,7 @@ export const RegistrationPage = () => (
 				}}
 				onError={(error, ...rest) => {
 					console.log(rest);
+
 				}}
 			>
 				{(createUser, { loading, error }) => (

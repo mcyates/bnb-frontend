@@ -56,6 +56,7 @@ const CreateListingPage = () => (
 				)}
 			</Mutation>
 		)}
+
 	</ApolloConsumer>
 );
 
