@@ -3,7 +3,6 @@ import { Mutation, ApolloConsumer } from "react-apollo";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
-import Navbar from "../Navbar/Navbar";
 import { LOGIN } from "../../mutations/login";
 import { LoginValidationSchema } from "../../yup/Schema";
 
@@ -24,7 +23,6 @@ export const LoginPage = () => (
 			>
 				{(loginUser, { loading, error }) => (
 					<>
-						<Navbar />
 						<Formik
 							initialValues={{ email: "", password: "" }}
 							validationSchema={LoginValidationSchema}

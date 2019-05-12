@@ -21,8 +21,7 @@ export const LoginValidationSchema = Yup.object().shape({
 
 export const CreateListingValidationSchema = Yup.object().shape({
 	name: Yup.string()
-		.required("Listing must have a name")
-		.min(8, "Listing name must be atleast 8 characters"),
+		.required("Listing must have a name"),
 	description: Yup.string(),
 	price: Yup.number()
 		.positive("Price must be postive")
