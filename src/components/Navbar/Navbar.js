@@ -14,18 +14,21 @@ const Navbar = () => {
       <Link className="link--logo" to="/">
         <img className="Logo" src={airbnbsvg} alt="airbnb-logo" />
       </Link>
-      <ul className="rightCorner">
+      <div className="rightCorner">
         {
           isAuthed ? (
+            <>
+            <Link className="nav-link" to="/dashboard">Dashboard</Link>
             <Logout />
+            </>
           ) : (
             <>
-            <Link to="/register">Sign up</Link>
-            <Link to="login">Log in</Link>
+            <Link className="nav-link" to="/register">Sign up</Link>
+            <Link className="nav-link" to="login">Log in</Link>
             </>
           )
         }
-          </ul>
+          </div>
       </nav>
     )}
 

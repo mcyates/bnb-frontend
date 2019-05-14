@@ -8,6 +8,7 @@ import RegistrationPage from "../components/RegistrationPage/RegistrationPage";
 import LoginPage from "../components/LoginPage/LoginPage";
 import NotFound from "../components/NotFound/NotFound";
 import Navbar from "../components/Navbar/Navbar";
+import Listing from "../components/Listing/Listing";
 
 const AppRouter = () => (
 	<>
@@ -18,7 +19,8 @@ const AppRouter = () => (
 		<Dashboard path="/dashboard" />
 		<RegistrationPage path="/register" />
 		<LoginPage path="/login" />
-		<CreateListingPage path="/createListing" />
+		<CreateListingPage path="/listing/create" />
+		<Listing path="/listing/:id" />
 	</Router>
 	</>
 );

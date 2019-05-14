@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 export const CREATELISTING = gql`
   mutation CreateListing($data: CreateListingInput!) {
-    CreateListing(data: $data) {
+    createListing(data: $data) {
       id
       name
       category

@@ -18,7 +18,7 @@ export const DropzoneField = ({
 			{({ getRootProps, getInputProps }) => (
 				<div id="drop" {...getRootProps()}>
 					<input {...getInputProps()} />
-					<p></p>
+					<p className="drop-p">Click here or drag a image over</p>
 				</div>
 			)}
 		</Dropzone>

@@ -28,3 +28,10 @@
 	color: #fff;
 	list-style: none;
 }
+
+.nav-link {
+	font-size: 1.6rem;
+	text-decoration: none;
+	color: #1b1b1b;
+	margin-right: 1rem;
+}
