@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
 import { CREATELISTING } from "../../mutations/createListing";
+import { GET_LISTINGS } from '../../queries/listings'
 import { CreateListingValidationSchema } from "../../yup/Schema";
 import { DropzoneField } from "../shared/DropzoneField";
 import "./CreateListing.css";
@@ -16,6 +17,13 @@ const CreateListingPage = () => (
 				onCompleted={(e) => {
 					console.log(e);
 					navigate(`/listing/${e.createListing.id}`);
+				}}
+				update={(cache, { data: { createListing } }) => {
+					const { listings } = cache.readQuery({ query: GET_LISTINGS });
+					cache.writeQuery({
+						query: GET_LISTINGS,
+						data: { listings: listings.concat([createListing]) }
+					});
 				}}
 				className="input"
 			>
@@ -36,6 +44,7 @@ const CreateListingPage = () => (
 							}}
 							validationSchema={CreateListingValidationSchema}
 							onSubmit={(values, { setSubmitting }) => {
+								console.log(values)
 								createListing({
 									variables: {
 										data: {
@@ -75,8 +84,8 @@ const CreateListingPage = () => (
 										name="category"
 										placeholder="Category"
 									>
-									<option value="apartment">Apartment</option>
-									<option value="sharedRoom">Shared Room</option>
+										<option value="apartment">Apartment</option>
+										<option value="sharedRoom">Shared Room</option>
 										<option value="house">House</option>
 										<option value="privateRoom">Private room</option>
 										<option value="villa">Villa</option>

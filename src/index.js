@@ -34,7 +34,8 @@ const client = new ApolloClient({
 
 client.writeData({
 	data: {
-		isAuthed: !!localStorage.getItem("token")
+		isAuthed: !!localStorage.getItem("token"),
+		listings: []
 	}
 });
 
