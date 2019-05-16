@@ -1,6 +1,7 @@
 import React from "react";
 
 import {Link} from '@reach/router';
+import {Link} from '@reach/router';
 import { Query } from "react-apollo";
 import {LISTINGS} from '../../queries/getListings';
 export const Dashboard = () => {
