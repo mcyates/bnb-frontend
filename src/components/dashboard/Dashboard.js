@@ -1,10 +1,12 @@
 import React from "react";
+
 import {Link} from '@reach/router';
 import { Query } from "react-apollo";
 import {LISTINGS} from '../../queries/getListings';
 export const Dashboard = () => {
 	return (
 		<>
+
 			<h2>Dashboard</h2>
 			<Link to="/listing/create">Create a new listing</Link>
 			<Query query={LISTINGS}>
