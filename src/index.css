@@ -2,6 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+
+*:focus {
+  border: 1px solid transparent;
+  outline: transparent;
 }
 
 body {
@@ -9,10 +16,13 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   color: rgb(77, 77, 77);
+  margin: 0;
+  /* width: 100vw; */
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 code {
