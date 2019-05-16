@@ -6,7 +6,7 @@ export const LISTINGS = gql`
       id
       name
       category
-      hero
+			heroUrl      
       price
       beds
       baths

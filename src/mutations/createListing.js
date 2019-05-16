@@ -7,6 +7,7 @@ export const CREATELISTING = gql`
       name
       category
       hero
+      heroUrl
       description
       price
       guests

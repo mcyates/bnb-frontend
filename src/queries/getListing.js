@@ -5,7 +5,7 @@ export const GET_LISTING = gql`
 		listing(id: $id) {
 			name
 			category
-			hero
+			heroUrl
 			description
 			price
 			guests

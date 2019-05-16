@@ -10,7 +10,7 @@ export const DropzoneField = ({
 		<Dropzone
 			accept="image/*"
 			multiple={false}
-			onDrop={([file]) => {
+			onDrop={async ([file]) => {
 				setFieldValue(name, file);
 			}}
 			{...props}

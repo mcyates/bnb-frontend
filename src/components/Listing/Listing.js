@@ -14,17 +14,18 @@ export const Listing = (props) => {
         return `Error: ${error}`
       }
       const {listing} = data
+      console.log(data);
       return (
         <>
         <h3>{listing.name}</h3>
         <p>{listing.category}</p>
-        <img src={listing.hero} alt="hero" />
+        <img src={listing.heroUrl} alt="hero" />
         <p>{listing.description}</p>
-        <p>{listing.price}</p>
-        <p>{listing.guests}</p>
-        <p>{listing.beds}</p>
-        <p>{listing.baths}</p>
-        <p>{listing.amenities}</p>
+        <p>{listing.price}$ Per night.</p>
+        <p>{listing.guests} Guests</p>
+        <p>{listing.beds} Beds</p>
+        <p>{listing.baths} Baths</p>
+        <p>Amenities: {listing.amenities}</p>
         </>
       )
     }}

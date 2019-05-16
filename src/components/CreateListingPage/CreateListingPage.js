@@ -61,12 +61,12 @@ const CreateListingPage = () => (
 										}
 									}
 								});
-								// console.log(values);
+								console.log(values);
 								setTimeout(() => {
 									setSubmitting(false);
-								}, 4000);
+								}, 400);
 							}}
-							render={({ isSubmitting }) => (
+							render={({ isSubmitting, values }) => console.log(values) || (
 								<Form className="form">
 									<label htmlFor="name">Name:</label>
 									<Field
@@ -161,5 +161,3 @@ const CreateListingPage = () => (
 );
 
 export default CreateListingPage;
-
-// console.log(values) ||
