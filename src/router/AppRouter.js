@@ -2,7 +2,9 @@ import React from "react";
 import { Router } from "@reach/router";
 
 import CreateListingPage from '../components/CreateListingPage/CreateListingPage';
-import Dashboard from "../components/Dashboard/Dashboard";
+import EditListingPage from '../components/EditListingPage/EditListingPage';
+import Dashboard from '../components/dashboard/Dashboard';
+
 import FrontPage from "../components/Frontpage/frontpage";
 import RegistrationPage from "../components/RegistrationPage/RegistrationPage";
 import LoginPage from "../components/LoginPage/LoginPage";
@@ -20,6 +22,7 @@ const AppRouter = () => (
 		<RegistrationPage path="/register" />
 		<LoginPage path="/login" />
 		<CreateListingPage path="/listing/create" />
+		<EditListingPage path='/listing/:id/edit' />
 		<Listing path="/listing/:id" />
 	</Router>
 	</>

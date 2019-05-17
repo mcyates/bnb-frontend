@@ -1,7 +1,6 @@
 import React from "react";
 
 import {Link} from '@reach/router';
-import {Link} from '@reach/router';
 import { Query } from "react-apollo";
 import {LISTINGS} from '../../queries/getListings';
 export const Dashboard = () => {
@@ -10,7 +9,7 @@ export const Dashboard = () => {
 
 			<h2>Dashboard</h2>
 			<Link to="/listing/create">Create a new listing</Link>
-			<Query query={LISTINGS}>
+			<Query query={LISTINGS} pollInterval={1000}>
 			{({loading, error, data, fetchMore}) => {
 				if (loading) {
 					return null;
@@ -18,7 +17,6 @@ export const Dashboard = () => {
 				if (error) {
 					return `Error: ${error}`
 				}
-				console.log(data.listings)
 				return (
 					<>
 					{data.listings.map((listing) => {
