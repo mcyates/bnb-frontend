@@ -1,11 +1,13 @@
 import React from 'react';
+import DeleteListing from "../deleteListing/DeleteListing";
 import { Query } from 'react-apollo';
 import {GET_LISTING} from '../../queries/getListing';
+import {Link } from '@reach/router';
 
 
 export const Listing = (props) => {
   return (
-    <Query query={GET_LISTING} variables={{id: props.id}}>
+    <Query query={GET_LISTING} variables={{id: props.id}} pollInterval={1000}>
     {({loading, error, data}) => {
       if (loading) {
         return null;
@@ -14,7 +16,7 @@ export const Listing = (props) => {
         return `Error: ${error}`
       }
       const {listing} = data
-      console.log(data);
+      console.log(listing)
       return (
         <>
         <h3>{listing.name}</h3>
@@ -26,6 +28,8 @@ export const Listing = (props) => {
         <p>{listing.beds} Beds</p>
         <p>{listing.baths} Baths</p>
         <p>Amenities: {listing.amenities}</p>
+        <Link to={`/listing/${props.id}/edit`}>Edit</Link>
+        <DeleteListing id={props.id} />
         </>
       )
     }}
@@ -34,3 +38,4 @@ export const Listing = (props) => {
 }
 
 export default Listing;
+

@@ -12,7 +12,7 @@ const URI = "http://localhost:4000/";
 
 const link = createUploadLink({
 	uri: URI,
-
+})
 const authLink = setContext((_, { headers }) => {
 	const token = localStorage.getItem("token");
 
@@ -28,7 +28,17 @@ const cache = new InMemoryCache();
 
 const client = new ApolloClient({
 	cache,
-	link: authLink.concat(link)
+	link: authLink.concat(link),
+	defaultOptions: {
+		watchQuery: {
+      // fetchPolicy: 'network-only',
+      errorPolicy: 'all',
+		},
+		query: {
+			fetchPolicy: 'network-only',
+			errorPolicy: 'all',
+		},
+	}
 });
 
 client.writeData({
