@@ -24,7 +24,9 @@ const authLink = setContext((_, { headers }) => {
 	};
 });
 
-const cache = new InMemoryCache();
+const cache = new InMemoryCache({
+	dataIdFromObject: object => object.key || null
+});
 
 const client = new ApolloClient({
 	cache,
