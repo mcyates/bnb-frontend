@@ -13,6 +13,10 @@ export const EditListingPage = (props) => (
 		{(client) => (
 			<Mutation
 				mutation={EDITLISTING}
+				refetchQueries={[{
+					query: GET_LISTING,
+					variables: {id: props.id}
+				}]}
 				onCompleted={(e) => {
           console.log(e);
 					navigate(`/listing/${e.updateListing.id}`);

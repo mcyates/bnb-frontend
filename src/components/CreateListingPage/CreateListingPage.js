@@ -50,7 +50,6 @@ const CreateListingPage = () => (
 								}
 							}
 						});
-						console.log(values);
 						setTimeout(() => {
 							setSubmitting(false);
 						}, 400);

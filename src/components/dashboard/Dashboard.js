@@ -10,7 +10,7 @@ export const Dashboard = () => {
 			<h2>Dashboard</h2>
 			<Link to="/listing/create">Create a new listing</Link>
 			<Query query={LISTINGS} pollInterval={1000}>
-			{({loading, error, data, fetchMore}) => {
+			{({loading, error, data}) => {
 				if (loading) {
 					return null;
 				}
