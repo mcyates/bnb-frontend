@@ -11,8 +11,8 @@ import App from "./App";
 const URI = "http://localhost:4000/";
 
 const link = createUploadLink({
-	uri: URI,
-})
+	uri: URI
+});
 const authLink = setContext((_, { headers }) => {
 	const token = localStorage.getItem("token");
 
@@ -25,31 +25,21 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const cache = new InMemoryCache({
-	dataIdFromObject: object => object.key || null
+	dataIdFromObject: (object) => object.key || null
 });
 
 const client = new ApolloClient({
 	cache,
-	link: authLink.concat(link),
-	defaultOptions: {
-		watchQuery: {
-      // fetchPolicy: 'network-only',
-      errorPolicy: 'all',
-		},
-		query: {
-			fetchPolicy: 'network-only',
-			errorPolicy: 'all',
-		},
-	}
+	link: authLink.concat(link)
 });
 
 client.writeData({
 	data: {
 		isAuthed: !!localStorage.getItem("token"),
+		id: localStorage.getItem("id") || '',
 		listings: []
 	}
 });
-
 
 ReactDOM.render(
 	<ApolloProvider client={client}>

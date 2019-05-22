@@ -12,6 +12,9 @@ export const GET_LISTING = gql`
 			beds
 			baths
 			amenities
+			author {
+				id
+			}
 		}
 	}
 `;

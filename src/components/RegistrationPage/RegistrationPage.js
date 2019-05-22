@@ -14,12 +14,14 @@ export const RegistrationPage = () => (
 				mutation={REGISTER}
 				onCompleted={(e) => {
 					localStorage.setItem("token", e.createUser.token);
+					localStorage.setItem("id", e.createUser.user.id);
 					client.writeData({
 						data: {
-							isAuthed: true
+							isAuthed: true,
+							id: e.createUser.user.id
 						}
 					});
-					navigate(`/dashboard`);
+					navigate(`/`);
 				}}
 				onError={(error, ...rest) => {
 					console.log(rest);

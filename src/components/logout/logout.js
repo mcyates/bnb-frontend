@@ -10,7 +10,8 @@ export const Logout = () => (
 					localStorage.setItem("token", "");
 					client.writeData({
 						data: {
-							isAuthed: false
+							isAuthed: false,
+							id: ''
 						}
 					});
 					navigate("/");

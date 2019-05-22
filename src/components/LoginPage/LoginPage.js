@@ -13,12 +13,14 @@ export const LoginPage = () => (
 				mutation={LOGIN}
 				onCompleted={(e) => {
 					localStorage.setItem("token", e.loginUser.token);
+					localStorage.setItem("id", e.loginUser.user.id);
 					client.writeData({
 						data: {
-							isAuthed: true
+							isAuthed: true,
+							id: e.loginUser.user.id
 						}
 					});
-					navigate("/dashboard");
+					navigate("/");
 				}}
 			>
 				{(loginUser, { loading, error }) => (

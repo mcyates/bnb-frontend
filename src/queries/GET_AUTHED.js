@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const authQuery = gql`
+export const GET_AUTHED = gql`
   query {
     isAuthed
   }
