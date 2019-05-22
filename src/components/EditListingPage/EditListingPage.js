@@ -2,10 +2,11 @@ import React from "react";
 import { ApolloConsumer, Mutation, Query } from "react-apollo";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-import { EDITLISTING } from "../../mutations/editListing";
 import { navigate } from "@reach/router";
-import { GET_LISTING } from "../../queries/getListing";
 import { DropzoneField } from "../shared/DropzoneField";
+import { LISTINGS } from '../../queries/LISTINGS';
+import { EDITLISTING } from "../../mutations/editListing";
+import { GET_LISTING } from "../../queries/GET_LISTING";
 import "./edit.css";
 
 export const EditListingPage = (props) => (
@@ -16,9 +17,11 @@ export const EditListingPage = (props) => (
 				refetchQueries={[{
 					query: GET_LISTING,
 					variables: {id: props.id}
+				}, {
+					query: LISTINGS
+
 				}]}
 				onCompleted={(e) => {
-          console.log(e);
 					navigate(`/listing/${e.updateListing.id}`);
         }}
 			>

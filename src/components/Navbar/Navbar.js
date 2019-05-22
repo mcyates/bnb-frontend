@@ -4,13 +4,13 @@ import "./Navbar.css";
 import airbnbsvg from "../../images/airbnb.svg";
 import Logout from "../logout/logout";
 import { Query } from "react-apollo";
-import { authQuery } from "../../queries/isAuthed";
+import { GET_AUTHED } from "../../queries/GET_AUTHED";
 
 
 
 const Navbar = () => {
 	return (
-    <Query query={authQuery} >
+    <Query query={GET_AUTHED} >
     {({data: {isAuthed}}) => (
       <nav className="Navbar">
       <Link className="link--logo" to="/">
