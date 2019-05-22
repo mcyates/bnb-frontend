@@ -19,6 +19,7 @@ export const EditListingPage = (props) => (
 					variables: {id: props.id}
 				}, {
 					query: LISTINGS
+
 				}]}
 				onCompleted={(e) => {
 					navigate(`/listing/${e.updateListing.id}`);

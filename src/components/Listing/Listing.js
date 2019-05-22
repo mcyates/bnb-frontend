@@ -5,6 +5,7 @@ import { GET_LISTING } from "../../queries/GET_LISTING";
 import { DELETELISTING } from "../../mutations/DeleteListing";
 import {GET_USER} from '../../queries/GET_USER';
 import { LISTINGS } from "../../queries/LISTINGS";
+
 import { Link } from "@reach/router";
 
 export const Listing = (props) => {
@@ -68,6 +69,7 @@ export const Listing = (props) => {
 								)
 							}}
 							</Query>
+
 							<h3>{listing.name}</h3>
 							<p>{listing.category}</p>
 							<img src={listing.heroUrl} alt="hero" />
@@ -77,15 +79,14 @@ export const Listing = (props) => {
 							<p>{listing.beds} Beds</p>
 							<p>{listing.baths} Baths</p>
 							<p>Amenities: {listing.amenities}</p>
-							
+
 						</>
 					);
 				}}
 			</Query>
-
-
 		</>
 	);
 };
 
 export default Listing;
+
