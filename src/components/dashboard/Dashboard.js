@@ -23,10 +23,15 @@ export const Dashboard = () => {
 						const url = `/listing/${listing.id}`;
 						return (
 							<Link key={listing.id} to={url}>
-								<div>
-								<h3>{listing.name}</h3>
-								</div>
-							</Link>
+              <div>
+              {listing.heroUrl ? (
+                <img src={listing.heroUrl} alt={`Listing Hero ${listing.id}`} />
+              ) : (
+                <></>
+              )}
+              <h3>{listing.name}</h3>
+              </div>
+            </Link>
 						)
 					})}
 					</>
