@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { Hero } from "../Hero/Hero";
+import { LISTINGS } from "../../queries/LISTINGS";
+import { Link } from "@reach/router";
+import { Query } from "react-apollo";
 import "./frontpage.css";
 
 
@@ -6,68 +10,37 @@ class FrontPage extends Component {
   render() {
     return (
       <div className="front">
-        {/* Intro Section */}
-        <div className="hero">
-          <div className="booking">
-            <h1>Book unique homes and experiences.</h1>
+      <Hero />
+      <Query query={LISTINGS} >
+      {({loading, error, data}) => {
+        if (loading) {
+					return null;
+				}
+				if (error) {
+					return `Error: ${error}`
+        }
+        return (
+          <>
+          {data.listings.map((listing) => {
+            const url = `/listing/${listing.id}`;
 
-            <div className="input__where__container">
-              <span className="span-block">Where</span>
-              <input
-                className="booking__input"
-                type="text"
-                autoFocus="autoFocus"
-                autoComplete="off"
-                autoCorrect="off"
-                spellCheck="false"
-                name="query"
-                placeholder="Anywhere"
-              />
-            </div>
-
-            <div className="input__check__container">
-              <span className="span-block">Check-in</span>
-              <input
-                className="booking__input input__check__container__item__left"
-                type="text"
-                name="checkout"
-                placeholder="mm/dd/yyyy"
-                readOnly="readOnly"
-              />
-            </div>
-
-            <div className="input__check__container">
-              <span className="span-block">Checkout</span>
-              <input
-                className="booking__input input__check__container__item__right"
-                type="text"
-                name="checkout"
-                placeholder="mm/dd/yyyy"
-                readOnly="readOnly"
-              />
-            </div>
-
-            <div className="input__guest__container">
-              <span className="span-block">Guests</span>
-              <input
-                className="booking__input"
-                type="text"
-                name="guest"
-                placeholder="Guests"
-                readOnly="readOnly"
-              />
-            </div>
-
-            <div>
-              <div id="input__search__container">
-                <button id="input__search__button" type="submit">
-                  <span>Search</span>
-                </button>
+            return (
+              <Link key={listing.id} to={url}>
+              <div>
+              {listing.heroUrl ? (
+                <img src={listing.heroUrl} alt={`Listing Hero ${listing.id}`} />
+              ) : (
+                <></>
+              )}
+              <h3>{listing.name}</h3>
               </div>
-            </div>
-          </div>
-        </div>
-
+            </Link>
+            )
+          })}
+          </>
+        )
+      }}
+      </Query>
       </div>
     );
   }
