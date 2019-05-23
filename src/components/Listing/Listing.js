@@ -92,7 +92,6 @@ export const Listing = (props) => {
 								)
 							}}
 							</Query>
-
 						</>
 					);
 				}}
