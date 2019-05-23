@@ -2,11 +2,12 @@
 import React from "react";
 import { Mutation, Query } from "react-apollo";
 import { GET_LISTING } from "../../queries/GET_LISTING";
-import { DELETELISTING } from "../../mutations/DeleteListing";
+import { DELETELISTING } from "../../mutations/DELETELISTING";
 import {GET_USER} from '../../queries/GET_USER';
 import { LISTINGS } from "../../queries/LISTINGS";
 
 import { Link } from "@reach/router";
+import { Booking } from "../Booking/Booking";
 
 export const Listing = (props) => {
 	return (
@@ -20,7 +21,6 @@ export const Listing = (props) => {
 						return `Error: ${error}`;
 					}
 					const { listing } = data;
-					console.log(listing)
 					return (
 						<>
 						<Query query={GET_USER} >
@@ -36,6 +36,16 @@ export const Listing = (props) => {
 									<>{
 										id === listing.author.id ? (
 											<>
+											<h3>{listing.name}</h3>
+											<p>{listing.category}</p>
+											<img src={listing.heroUrl} alt="hero" />
+											<p>{listing.description}</p>
+											<p>{listing.price}$ Per night.</p>
+											<p>{listing.guests} Guests</p>
+											<p>{listing.beds} Beds</p>
+											<p>{listing.baths} Baths</p>
+											<p>Amenities: {listing.amenities}</p>
+
 											<Link to={`/listing/${props.id}/edit`}>Edit</Link>
 											<Mutation
 											mutation={DELETELISTING}
@@ -63,22 +73,25 @@ export const Listing = (props) => {
 										</Mutation>
 										</>
 										) : (
-											<div>Book!</div>
+											<>
+											<Booking id={props.id} />
+											<h3>{listing.name}</h3>
+											<p>{listing.category}</p>
+											<img src={listing.heroUrl} alt="hero" />
+											<p>{listing.description}</p>
+											<p>{listing.price}$ Per night.</p>
+											<p>{listing.guests} Guests</p>
+											<p>{listing.beds} Beds</p>
+											<p>{listing.baths} Baths</p>
+											<p>Amenities: {listing.amenities}</p>
+
+											<div>Reviews!</div>
+											</>
 										)
 									}</>
 								)
 							}}
 							</Query>
-
-							<h3>{listing.name}</h3>
-							<p>{listing.category}</p>
-							<img src={listing.heroUrl} alt="hero" />
-							<p>{listing.description}</p>
-							<p>{listing.price}$ Per night.</p>
-							<p>{listing.guests} Guests</p>
-							<p>{listing.beds} Beds</p>
-							<p>{listing.baths} Baths</p>
-							<p>Amenities: {listing.amenities}</p>
 
 						</>
 					);
