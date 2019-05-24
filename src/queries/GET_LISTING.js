@@ -15,7 +15,7 @@ export const GET_LISTING = gql`
 			author {
 				id
 			}
-			booking {
+			bookings {
 				startDate
 				endDate
 			}
