@@ -4,26 +4,32 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import { navigate } from "@reach/router";
 import { DropzoneField } from "../shared/DropzoneField";
-import { LISTINGS } from '../../queries/LISTINGS';
+import { LISTINGS } from "../../queries/LISTINGS";
 import { EDITLISTING } from "../../mutations/EDITLISTING";
 import { GET_LISTING } from "../../queries/GET_LISTING";
 import "./edit.css";
+import { MY_LISTINGS } from "../../queries/MY_LISTINGS";
 
 export const EditListingPage = (props) => (
 	<ApolloConsumer>
 		{(client) => (
 			<Mutation
 				mutation={EDITLISTING}
-				refetchQueries={[{
-					query: GET_LISTING,
-					variables: {id: props.id}
-				}, {
-					query: LISTINGS
-
-				}]}
+				refetchQueries={[
+					{
+						query: GET_LISTING,
+						variables: { id: props.id }
+					},
+					{
+						query: LISTINGS
+					},
+					{
+						query: MY_LISTINGS
+					}
+				]}
 				onCompleted={(e) => {
 					navigate(`/listing/${e.updateListing.id}`);
-        }}
+				}}
 			>
 				{(updateListing, { loading, error }) => (
 					<>
@@ -54,14 +60,14 @@ export const EditListingPage = (props) => (
 												amenities: listing.amenities
 											}}
 											onSubmit={(values, { setSubmitting }) => {
-													updateListing({
-														variables: {
-															id: props.id,
-															data: {
-																...values
-															}
+												updateListing({
+													variables: {
+														id: props.id,
+														data: {
+															...values
 														}
-													});
+													}
+												});
 												setTimeout(() => {
 													setSubmitting(false);
 												}, 400);
@@ -165,7 +171,7 @@ export const EditListingPage = (props) => (
 													</button>
 												</Form>
 											)}
-                    />
+										/>
 									</div>
 								);
 							}}

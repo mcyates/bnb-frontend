@@ -20,6 +20,7 @@ export const LISTINGS = gql`
 			category
 			heroUrl
 			price
+			guests
 			beds
 			baths
 		}

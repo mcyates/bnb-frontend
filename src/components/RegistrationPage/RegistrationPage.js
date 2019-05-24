@@ -4,14 +4,18 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
 
-import { REGISTER } from "../../mutations/register";
+import { REGISTER } from "../../mutations/REGISTER";
 import { registrationValidationSchema } from "../../yup/Schema";
+import { LISTINGS } from "../../queries/LISTINGS";
 
 export const RegistrationPage = () => (
 	<ApolloConsumer>
 		{(client) => (
 			<Mutation
 				mutation={REGISTER}
+				refetchQueries={[{
+					query: LISTINGS
+				}]}
 				onCompleted={(e) => {
 					localStorage.setItem("token", e.createUser.token);
 					localStorage.setItem("id", e.createUser.user.id);
