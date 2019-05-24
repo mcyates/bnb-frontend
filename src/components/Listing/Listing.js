@@ -8,6 +8,7 @@ import { LISTINGS } from "../../queries/LISTINGS";
 
 import { Link } from "@reach/router";
 import { Booking } from "../Booking/Booking";
+import { MY_LISTINGS } from "../../queries/MY_LISTINGS";
 
 export const Listing = (props) => {
 	return (
@@ -54,6 +55,8 @@ export const Listing = (props) => {
 												{
 													query: LISTINGS,
 													variables: { id: props.id }
+												}, {
+													query: MY_LISTINGS
 												}
 											]}
 										>
@@ -75,7 +78,7 @@ export const Listing = (props) => {
 										</>
 										) : (
 											<>
-											<Booking id={props.id} price={listing.price} booking={listing.booking} />
+											<Booking id={props.id} price={listing.price} bookings={listing.bookings} />
 											<h3>{listing.name}</h3>
 											<p>{listing.category}</p>
 											<img src={listing.heroUrl} alt="hero" />
