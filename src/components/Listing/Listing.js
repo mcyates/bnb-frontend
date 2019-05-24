@@ -21,6 +21,7 @@ export const Listing = (props) => {
 						return `Error: ${error}`;
 					}
 					const { listing } = data;
+					
 					return (
 						<>
 						<Query query={GET_USER} >
@@ -74,7 +75,7 @@ export const Listing = (props) => {
 										</>
 										) : (
 											<>
-											<Booking id={props.id} />
+											<Booking id={props.id} price={listing.price} booking={listing.booking} />
 											<h3>{listing.name}</h3>
 											<p>{listing.category}</p>
 											<img src={listing.heroUrl} alt="hero" />

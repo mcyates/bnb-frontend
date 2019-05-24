@@ -3,14 +3,18 @@ import { Mutation, ApolloConsumer } from "react-apollo";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
-import { LOGIN } from "../../mutations/login";
+import { LOGIN } from "../../mutations/LOGIN";
 import { LoginValidationSchema } from "../../yup/Schema";
+import { LISTINGS } from '../../queries/LISTINGS';
 
 export const LoginPage = () => (
 	<ApolloConsumer>
 		{(client) => (
 			<Mutation
 				mutation={LOGIN}
+				refetchQueries={[{
+					query: LISTINGS
+				}]}
 				onCompleted={(e) => {
 					localStorage.setItem("token", e.loginUser.token);
 					localStorage.setItem("id", e.loginUser.user.id);

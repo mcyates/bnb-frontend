@@ -15,6 +15,10 @@ export const GET_LISTING = gql`
 			author {
 				id
 			}
+			booking {
+				startDate
+				endDate
+			}
 		}
 	}
 `;
