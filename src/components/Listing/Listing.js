@@ -22,6 +22,7 @@ export const Listing = (props) => {
 						return `Error: ${error}`;
 					}
 					const { listing } = data;
+					
 					return (
 						<>
 						<Query query={GET_USER} >

@@ -21,7 +21,7 @@ export const Booking = (props) => {
 	let [newestDate, setNewestDate] = useState(max(...endDateArr))
 	// let newestDate = max(...endDateArr);
 	let [endDate2, setEndDate2] = useState(addDays(new Date(newestDate), 7))
-
+  
 	return (
 		<>
 			<Mutation
