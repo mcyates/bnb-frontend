@@ -18,9 +18,8 @@ export const Booking = (props) => {
 	bookings.forEach((booking) => {
 		endDateArr.push(booking.endDate);
 	});
-	let [newestDate, setNewestDate] = useState(max(...endDateArr))
-	// let newestDate = max(...endDateArr);
-	let [endDate2, setEndDate2] = useState(addDays(new Date(newestDate), 7))
+	let [newestDate, setNewestDate] = useState(max(...endDateArr));
+	let [endDate2, setEndDate2] = useState(addDays(new Date(newestDate), 7));
   
 	return (
 		<>
@@ -59,10 +58,10 @@ export const Booking = (props) => {
 									}}
 								>
 									<DatePicker
-										selected={newestDate}
+										selected={new Date(startDate)}
 										selectsStart
-										startDate={newestDate}
-										endDate={endDate}
+										startDate={new Date(startDate)}
+										endDate={new Date(endDate)}
 										minDate={new Date()}
 										maxDate={new Date(later).setDate(
 											new Date(later).getDate() - 1
@@ -73,13 +72,13 @@ export const Booking = (props) => {
 										showDisabledMonthNavigation
 									/>
 									<DatePicker
-										selected={endDate}
+										selected={new Date(endDate)}
 										selectsEnd
-										startDate={startDate}
-										endDate={endDate}
+										startDate={new Date(startDate)}
+										endDate={new Date(endDate)}
 										minDate={addDays(new Date(), 1)}
 										onChange={(e) => {
-											setEndDate(e);
+											setEndDate(new Date(e));
 										}}
 										showDisabledMonthNavigation
 									/>
@@ -110,22 +109,22 @@ export const Booking = (props) => {
 									}}
 								>
 									<DatePicker
-										selected={newestDate}
+										selected={new Date(newestDate)}
 										selectsStart
 										startDate={new Date(newestDate)}
-										endDate={endDate2}
+										endDate={new Date(endDate2)}
 										minDate={new Date(newestDate)}
-										maxDate={endDate2}
+										maxDate={new Date(endDate2)}
 										onChange={(e) => {
 											setNewestDate(new Date(e));
 										}}
 										showDisabledMonthNavigation
 									/>
 									<DatePicker
-										selected={endDate2}
+										selected={new Date(endDate2)}
 										selectsEnd
-										startDate={newestDate}
-										endDate={endDate2}
+										startDate={new Date(newestDate)}
+										endDate={new Date(endDate2)}
 										minDate={addDays(new Date(newestDate), 1)}
 										onChange={(e) => {
 											setEndDate2(e);
@@ -142,7 +141,7 @@ export const Booking = (props) => {
 										return `Booked from ${format(
 											booking.startDate,
 											"MM/DD/YYYY"
-										)} to ${format(booking.endDate, "MM/DD/YYYY")} \n`
+										)} to ${format(booking.endDate, "MM/DD/YYYY")} \n`;
 									})}
 								</h4>
 							</>

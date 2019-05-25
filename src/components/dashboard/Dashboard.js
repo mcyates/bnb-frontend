@@ -7,7 +7,7 @@ import { GET_USER } from "../../queries/GET_USER";
 
 export const Dashboard = () => {
 	return (
-		<>
+		<React.Fragment>
 			<Query query={GET_USER}>
 				{({ loading, error, data }) => {
 					if (loading) {
@@ -54,7 +54,7 @@ export const Dashboard = () => {
 			</Query>
 			<h2>Dashboard</h2>
 			<Link to="/listing/create">Create a new listing</Link>
-		</>
+		</React.Fragment>
 	);
 };
 

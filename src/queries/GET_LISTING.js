@@ -15,9 +15,22 @@ export const GET_LISTING = gql`
 			author {
 				id
 			}
+			reviews {
+				id
+				rating
+				text
+				createdAt
+				author {
+					name
+					id
+				}
+			}
 			bookings {
 				startDate
 				endDate
+				author {
+					id
+				}
 			}
 		}
 	}

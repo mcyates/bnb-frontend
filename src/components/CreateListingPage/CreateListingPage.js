@@ -60,7 +60,7 @@ const CreateListingPage = () => (
 							setSubmitting(false);
 						}, 400);
 					}}
-					render={({ isSubmitting, values }) => (
+					render={({ isSubmitting }) => (
 						<Form className="form">
 							<label htmlFor="name">Name:</label>
 							<Field
