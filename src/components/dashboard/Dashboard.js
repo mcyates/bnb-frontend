@@ -5,10 +5,37 @@ import { MY_LISTINGS } from "../../queries/MY_LISTINGS";
 import { GET_USER } from "../../queries/GET_USER";
 import { ListingList } from "../listingList/ListingList";
 import { Link } from "@reach/router";
+import { MY_BOOKINGS } from "../../queries/MY_BOOKINGS";
 
 export const Dashboard = () => {
 	return (
 		<React.Fragment>
+			<h2>Dashboard</h2>
+			<Link to="/listing/create">Create a new listing</Link>
+			<Query query={MY_BOOKINGS}>
+				{({ loading, error, data }) => {
+					if (loading) {
+						return null;
+					}
+					if (error) {
+						return `Error: ${error}`;
+					}
+					const bookings = data.mybookings;
+					return (
+						<div>
+							{bookings.map((booking) => (
+								<div key={booking.id}>
+									<h4>{booking.listing.name}</h4>
+									<p>
+										<span>{booking.startDate}</span>
+										<span>{booking.endDate}</span>
+									</p>
+								</div>
+							))}
+						</div>
+					);
+				}}
+			</Query>
 			<Query query={GET_USER}>
 				{({ loading, error, data }) => {
 					if (loading) {
@@ -33,7 +60,10 @@ export const Dashboard = () => {
 									return `Error: ${error}`;
 								}
 								const listings = data.mylistings;
-								let cursor = listings[listings.length - 1].id;
+								let cursor = "";
+								if (listings.length !== 0) {
+									cursor = listings[listings.length - 1].id;
+								}
 								return (
 									<React.Fragment>
 										<ListingList
@@ -66,8 +96,28 @@ export const Dashboard = () => {
 					);
 				}}
 			</Query>
-			<h2>Dashboard</h2>
-			<Link to="/listing/create">Create a new listing</Link>
+			<div>
+				Icons made by{" "}
+				<a
+					href="https://www.flaticon.com/authors/smashicons"
+					title="Smashicons"
+				>
+					Smashicons
+				</a>{" "}
+				from{" "}
+				<a href="https://www.flaticon.com/" title="Flaticon">
+					www.flaticon.com
+				</a>{" "}
+				is licensed by{" "}
+				<a
+					href="http://creativecommons.org/licenses/by/3.0/"
+					title="Creative Commons BY 3.0"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					CC 3.0 BY
+				</a>
+			</div>
 		</React.Fragment>
 	);
 };

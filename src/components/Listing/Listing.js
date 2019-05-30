@@ -10,6 +10,7 @@ import { Booking } from "../Booking/Booking";
 import { MY_LISTINGS } from "../../queries/MY_LISTINGS";
 import { ReviewList } from "../ReviewList/ReviewList";
 import { CreateReview } from "../CreateReview/CreateReview";
+import "./listing.css";
 
 export const Listing = (props) => {
 	return (
@@ -29,13 +30,12 @@ export const Listing = (props) => {
 					let totalRating = 0;
 					let sumRating = 0;
 					if (listing.reviews.length > 0) {
-						totalRating = (5 * listing.reviews.length);
-						for(let i = 0; i < listing.reviews.length; i++) {
+						totalRating = 5 * listing.reviews.length;
+						for (let i = 0; i < listing.reviews.length; i++) {
 							sumRating = sumRating + listing.reviews[i].rating;
 						}
-						listing.rating = (sumRating * 5) / totalRating
+						listing.rating = (sumRating * 5) / totalRating;
 					}
-					console.log(sumRating)
 					return (
 						<>
 							<Query query={GET_USER}>
@@ -78,7 +78,11 @@ export const Listing = (props) => {
 													<h3>{listing.name}</h3>
 													<p>Rating: {listing.rating}</p>
 													<p>{listing.category}</p>
-													<img src={listing.heroUrl} alt="hero" />
+													<img
+														className="listing-img"
+														src={listing.heroUrl}
+														alt="hero"
+													/>
 													<p>{listing.description}</p>
 													<p>{listing.price}$ Per night.</p>
 													<p>{listing.guests} Guests</p>
@@ -148,6 +152,28 @@ export const Listing = (props) => {
 					);
 				}}
 			</Query>
+			<div>
+				Icons made by{" "}
+				<a
+					href="https://www.flaticon.com/authors/smashicons"
+					title="Smashicons"
+				>
+					Smashicons
+				</a>{" "}
+				from{" "}
+				<a href="https://www.flaticon.com/" title="Flaticon">
+					www.flaticon.com
+				</a>{" "}
+				is licensed by{" "}
+				<a
+					href="http://creativecommons.org/licenses/by/3.0/"
+					title="Creative Commons BY 3.0"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					CC 3.0 BY
+				</a>
+			</div>
 		</>
 	);
 };
