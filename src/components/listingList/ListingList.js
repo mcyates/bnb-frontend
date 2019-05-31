@@ -79,6 +79,7 @@ export const ListingList = (props) => {
 										{listing.baths}
 									</p>
 								</div>
+
 							</div>
 						</div>
 					</Link>
