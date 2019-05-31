@@ -47,32 +47,38 @@ export const ListingList = (props) => {
 							) : (
 								<></>
 							)}
-							<h3>{listing.name}</h3>
-							<div className="listing-card-info">
-								<p className="listing-card-price">
-									<span className="listing-svg-box">$</span>
-									{listing.price}
-								</p>
-								<p className="listing-card-guests">
-									<span />
-									{listing.guests}
-								</p>
-								<p>
-									<span className="listing-svg-box">
-										<img className="listing-svg" src={bedSvg} alt="bed icon" />
-									</span>
-									{listing.beds}
-								</p>
-								<p>
-									<span className="listing-svg-box">
-										<img
-											className="listing-svg"
-											src={bathSvg}
-											alt="bath icon"
-										/>
-									</span>
-									{listing.baths}
-								</p>
+							<div className="listing-card-box">
+								<h3 className="listing-card-name">{listing.name}</h3>
+								<div className="listing-card-info">
+									<p className="listing-card-price listing-card-p">
+										<span className="listing-svg-box">$</span>
+										{listing.price}
+									</p>
+									<p className="listing-card-guests listing-card-p">
+										<span />
+										{listing.guests}
+									</p>
+									<p className="listing-card-beds listing-card-p">
+										<span className="listing-svg-box">
+											<img
+												className="listing-svg"
+												src={bedSvg}
+												alt="bed icon"
+											/>
+										</span>
+										{listing.beds}
+									</p>
+									<p className="listing-card-baths listing-card-p">
+										<span className="listing-svg-box">
+											<img
+												className="listing-svg"
+												src={bathSvg}
+												alt="bath icon"
+											/>
+										</span>
+										{listing.baths}
+									</p>
+								</div>
 							</div>
 						</div>
 					</Link>

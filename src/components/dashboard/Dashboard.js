@@ -11,7 +11,9 @@ export const Dashboard = () => {
 	return (
 		<React.Fragment>
 			<h2>Dashboard</h2>
-			<Link to="/listing/create">Create a new listing</Link>
+			<Link className="btn-form" to="/listing/create">
+				Create a new listing
+			</Link>
 			<Query query={MY_BOOKINGS}>
 				{({ loading, error, data }) => {
 					if (loading) {

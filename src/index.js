@@ -8,6 +8,8 @@ import { ApolloProvider } from "react-apollo";
 
 import App from "./App";
 
+import "./index.css";
+
 const URI = "http://localhost:4000/";
 
 const link = createUploadLink({
@@ -36,7 +38,7 @@ const client = new ApolloClient({
 client.writeData({
 	data: {
 		isAuthed: !!localStorage.getItem("token"),
-		id: localStorage.getItem("id") || '',
+		id: localStorage.getItem("id") || "",
 		listings: []
 	}
 });
