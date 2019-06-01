@@ -1,8 +1,7 @@
 import React from "react";
 import { Mutation, ApolloConsumer } from "react-apollo";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import { navigate } from "@reach/router";
-
 
 import { REGISTER } from "../../mutations/REGISTER";
 import { registrationValidationSchema } from "../../yup/Schema";
@@ -13,9 +12,11 @@ export const RegistrationPage = () => (
 		{(client) => (
 			<Mutation
 				mutation={REGISTER}
-				refetchQueries={[{
-					query: LISTINGS
-				}]}
+				refetchQueries={[
+					{
+						query: LISTINGS
+					}
+				]}
 				onCompleted={(e) => {
 					localStorage.setItem("token", e.createUser.token);
 					localStorage.setItem("id", e.createUser.user.id);
@@ -29,12 +30,10 @@ export const RegistrationPage = () => (
 				}}
 				onError={(error, ...rest) => {
 					console.log(rest);
-
 				}}
 			>
 				{(createUser, { loading, error }) => (
-					<>
-						<h2>Registration page</h2>
+					<div className="form-box">
 						<Formik
 							initialValues={{ name: "", email: "", password: "" }}
 							validationSchema={registrationValidationSchema}
@@ -53,24 +52,37 @@ export const RegistrationPage = () => (
 								}, 400);
 							}}
 							render={({ isSubmitting }) => (
-								<Form>
-									<label htmlFor="email">Email</label>
-									<Field type="email" name="email" autoComplete="email" />
-									<ErrorMessage name="email" component="div" />
+								<Form className="formik">
+									<h2>Sign up today!</h2>
+									<div className="formik-field">
+										<label htmlFor="Email: ">Email</label>
+										<Field
+											className="input-text"
+											type="email"
+											name="email"
+											autoComplete="email"
+										/>
+									</div>
+									<div className="formik-field">
+										<label htmlFor="Name">Username</label>
+										<Field
+											className="input-text"
+											type="text"
+											name="name"
+											autoComplete="name"
+										/>
+									</div>
+									<div className="formik-field">
+										<label htmlFor="Password: ">Password</label>
+										<Field
+											className="input-text"
+											type="password"
+											name="password"
+											autoComplete="current-password"
+										/>
+									</div>
 
-									<label htmlFor="name">Username</label>
-									<Field type="text" name="name" autoComplete="name" />
-									<ErrorMessage name="name" component="div" />
-
-									<label htmlFor="password">Password</label>
-									<Field
-										type="password"
-										name="password"
-										autoComplete="current-password"
-									/>
-									<ErrorMessage name="password" component="div" />
-
-									<button type="submit" disabled={isSubmitting}>
+									<button className="btn" type="submit" disabled={isSubmitting}>
 										Submit
 									</button>
 								</Form>
@@ -78,7 +90,7 @@ export const RegistrationPage = () => (
 						/>
 						{loading && <p>Loading...</p>}
 						{error && <p>Error</p>}
-					</>
+					</div>
 				)}
 			</Mutation>
 		)}
