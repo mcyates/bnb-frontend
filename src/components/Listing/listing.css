@@ -1,4 +1,27 @@
+.listing {
+	/* width: 100vw; */
+	/* max-width: 100%; */
+	min-height: 150rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
 .listing-img {
-	max-width: 40vw;
+	max-width: 50vw;
 	height: auto;
+	box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.15);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+
+.listing-buttons {
+	display: flex;
+	justify-content: space-around;
+	/* width: 20rem; */
+	width: 100%;
 }

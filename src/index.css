@@ -24,8 +24,13 @@ body {
 		sans-serif;
 	color: #1b1b1b;
 	font-size: 1.6rem;
-	margin: 0;
-	/* width: 100vw; */
+	width: 100vw;
+	max-width: 100%;
+}
+
+#root {
+	width: 100vw;
+	max-width: 100%;
 }
 
 code {
@@ -38,20 +43,18 @@ button {
 }
 
 .btn {
-	width: 10rem;
-	height: 4rem;
-	/* padding: 1rem 3rem; */
+	padding: 0.5rem 2rem;
 	font-size: 1.8rem;
 	font-weight: 500;
 	color: #1b1b1b;
 	background-color: transparent;
+	border: 1px solid #1b1b1b;
 	text-decoration: none;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
-	border: 1px solid #1b1b1b;
 	transition: all 0.3s ease;
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
@@ -60,15 +63,55 @@ button {
 }
 
 .btn:hover {
-	background-color: #f3f3f3;
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .btn-logout {
-	background-color: hsl(360, 83%, 62%);
-	border: none;
+	color: #1b1b1b;
+	border: 1px solid #1b1b1b;
 }
 
 .btn-logout:hover {
-	border: none;
-	background-color: hsl(354, 85%, 44%);
+	border-bottom: 1px solid black;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+}
+
+.form-box {
+	height: 100%;
+	width: 100vw;
+	max-width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.formik {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 100%;
+}
+
+.formik > h2 {
+	margin-bottom: 1rem;
+}
+
+.formik-field {
+	margin: 1rem 0;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.dashboard {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 0 2rem;
+	min-height: 100rem;
+}
+
+.dashboard > a {
+	margin: 2rem 0;
 }
