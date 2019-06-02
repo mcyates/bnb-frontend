@@ -163,18 +163,18 @@ export const Listing = (props) => {
 			</Query>
 			<div>
 				Icons made by{" "}
-				<a
+				<a className="nav-link"
 					href="https://www.flaticon.com/authors/smashicons"
 					title="Smashicons"
 				>
 					Smashicons
 				</a>{" "}
 				from{" "}
-				<a href="https://www.flaticon.com/" title="Flaticon">
+				<a className="nav-link" href="https://www.flaticon.com/" title="Flaticon">
 					www.flaticon.com
 				</a>{" "}
 				is licensed by{" "}
-				<a
+				<a className="nav-link"
 					href="http://creativecommons.org/licenses/by/3.0/"
 					title="Creative Commons BY 3.0"
 					target="_blank"
