@@ -6,9 +6,9 @@ import { navigate } from "@reach/router";
 import { CREATELISTING } from "../../mutations/CREATELISTING";
 import { CreateListingValidationSchema } from "../../yup/Schema";
 import { DropzoneField } from "../shared/DropzoneField";
-import "./listingform.css";
 import { LISTINGS } from "../../queries/LISTINGS";
 import { MY_LISTINGS } from "../../queries/MY_LISTINGS";
+import "./listingform.css";
 
 const CreateListingPage = () => (
 	<Mutation
@@ -16,11 +16,14 @@ const CreateListingPage = () => (
 		onCompleted={(e) => {
 			navigate(`/listing/${e.createListing.id}`);
 		}}
-		refetchQueries={[{
+		refetchQueries={[
+			{
 				query: LISTINGS
-			}, {
+			},
+			{
 				query: MY_LISTINGS
-			}]}
+			}
+		]}
 		className="input"
 	>
 		{(createListing, { loading, error }) => (

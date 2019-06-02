@@ -1,5 +1,6 @@
 import React from "react";
 import Dropzone from "react-dropzone";
+import uploadSVG from "../../images/upload.svg";
 
 export const DropzoneField = ({
 	field: { name },
@@ -18,10 +19,11 @@ export const DropzoneField = ({
 			{({ getRootProps, getInputProps }) => (
 				<div id="drop" {...getRootProps()}>
 					<input {...getInputProps()} />
-					<p className="drop-p">Click here or drag a image over</p>
+					<span className="form-box">
+						<img className="listing-svg" src={uploadSVG} alt="reload icon" />
+					</span>
 				</div>
 			)}
 		</Dropzone>
 	);
 };
-

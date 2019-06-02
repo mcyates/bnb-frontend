@@ -9,6 +9,10 @@
 	z-index: 10;
 }
 
+.leftCorner {
+	display: flex;
+}
+
 .link--logo {
 	width: 4rem;
 	align-self: flex-end;
