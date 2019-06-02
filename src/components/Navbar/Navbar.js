@@ -11,9 +11,14 @@ const Navbar = () => {
 		<Query query={GET_AUTHED}>
 			{({ data: { isAuthed } }) => (
 				<nav className="Navbar">
-					<Link className="link--logo" to="/">
-						<img className="Logo" src={airbnbsvg} alt="airbnb-logo" />
-					</Link>
+					<div className="leftCorner">
+						<Link className="link--logo" to="/">
+							<img className="Logo" src={airbnbsvg} alt="airbnb-logo" />
+						</Link>
+						<Link className="nav-link" to="/about">
+							About
+						</Link>
+					</div>
 					<div className="rightCorner">
 						{isAuthed ? (
 							<>
@@ -27,6 +32,7 @@ const Navbar = () => {
 								<Link className="nav-link" to="/register">
 									Sign up
 								</Link>
+
 								<Link className="nav-link" to="login">
 									Log in
 								</Link>

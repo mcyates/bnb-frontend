@@ -11,6 +11,7 @@ import LoginPage from "../components/LoginPage/LoginPage";
 import NotFound from "../components/NotFound/NotFound";
 import Navbar from "../components/Navbar/Navbar";
 import Listing from "../components/Listing/Listing";
+import About from "../components/about/about";
 
 const AppRouter = () => (
 	<>
@@ -24,6 +25,7 @@ const AppRouter = () => (
 			<CreateListingPage path="/listing/create" />
 			<EditListingPage path="/listing/:id/edit" />
 			<Listing path="/listing/:id" />
+			<About path="/about" />
 		</Router>
 	</>
 );

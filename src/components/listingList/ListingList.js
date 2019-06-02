@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 
 import bedSvg from "../../images/bed-3.svg";
 import bathSvg from "../../images/shower.svg";
+import avatarSVG from "../../images/avatar.svg";
 import "./listingList.css";
 
 export const ListingList = (props) => {
@@ -28,9 +29,7 @@ export const ListingList = (props) => {
 		if (scrolledToBottom) {
 			props.onLoadMore();
 		}
-		// console.log(`scrollTop: ${scrollTop}, scrollHeight: ${scrollHeight}, clientHeight: ${clientHeight}, scrollToBottom: ${scrolledToBottom}`)
 	};
-	// console.log(props)
 	return (
 		<div className="listing-list">
 			{props.entries.map((listing) => {
@@ -55,7 +54,13 @@ export const ListingList = (props) => {
 										{listing.price}
 									</p>
 									<p className="listing-card-guests listing-card-p">
-										<span />
+										<span className="listing-svg-box">
+											<img
+												className="listing-svg"
+												src={avatarSVG}
+												alt="guest icon"
+											/>
+										</span>
 										{listing.guests}
 									</p>
 									<p className="listing-card-beds listing-card-p">
@@ -79,7 +84,6 @@ export const ListingList = (props) => {
 										{listing.baths}
 									</p>
 								</div>
-
 							</div>
 						</div>
 					</Link>
@@ -88,20 +92,3 @@ export const ListingList = (props) => {
 		</div>
 	);
 };
-
-// {data.listings.map((listing) => {
-//   const url = `/listing/${listing.id}`;
-
-//   return (
-//     <Link key={listing.id} to={url}>
-//     <div>
-//     {listing.heroUrl ? (
-//       <img src={listing.heroUrl} alt={`Listing Hero ${listing.id}`} />
-//     ) : (
-//       <></>
-//     )}
-//     <h3>{listing.name}</h3>
-//     </div>
-//   </Link>
-//   )
-// })}

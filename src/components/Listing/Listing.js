@@ -10,6 +10,9 @@ import { Booking } from "../Booking/Booking";
 import { MY_LISTINGS } from "../../queries/MY_LISTINGS";
 import { ReviewList } from "../ReviewList/ReviewList";
 import { CreateReview } from "../CreateReview/CreateReview";
+import avatarSVG from "../../images/avatar.svg";
+import bedSVG from "../../images/bed-3.svg";
+import bathSVG from "../../images/shower.svg";
 import "./listing.css";
 
 export const Listing = (props) => {
@@ -86,9 +89,36 @@ export const Listing = (props) => {
 														/>
 														<p>{listing.description}</p>
 														<p>{listing.price}$ Per night.</p>
-														<p>{listing.guests} Guests</p>
-														<p>{listing.beds} Beds</p>
-														<p>{listing.baths} Baths</p>
+														<p>
+															{listing.guests}{" "}
+															<span className="listing-svg-box">
+																<img
+																	className="listing-svg"
+																	src={avatarSVG}
+																	alt="guest icon"
+																/>
+															</span>
+														</p>
+														<p>
+															{listing.beds}{" "}
+															<span className="listing-svg-box">
+																<img
+																	className="listing-svg"
+																	src={bedSVG}
+																	alt="bed icon"
+																/>
+															</span>
+														</p>
+														<p>
+															{listing.baths}{" "}
+															<span className="listing-svg-box">
+																<img
+																	className="listing-svg"
+																	src={bathSVG}
+																	alt="bath icon"
+																/>
+															</span>
+														</p>
 														<p>Amenities: {listing.amenities}</p>
 													</div>
 													<div className="listing-buttons">
@@ -141,9 +171,27 @@ export const Listing = (props) => {
 													<img src={listing.heroUrl} alt="hero" />
 													<p>{listing.description}</p>
 													<p>{listing.price}$ Per night.</p>
-													<p>{listing.guests} Guests</p>
+													<p>
+														{listing.guests}{" "}
+														<span className="listing-svg-box">
+															<img
+																className="listing-svg"
+																src={avatarSVG}
+																alt="guest icon"
+															/>
+														</span>
+													</p>
 													<p>{listing.beds} Beds</p>
-													<p>{listing.baths} Baths</p>
+													<p>
+														{listing.baths}{" "}
+														<span className="listing-svg-box">
+															<img
+																className="listing-svg"
+																src={bathSVG}
+																alt="bath icon"
+															/>
+														</span>
+													</p>
 													<p>Amenities: {listing.amenities}</p>
 													{reviewed && stayed ? (
 														<CreateReview authorId={id} listingId={props.id} />
@@ -161,28 +209,6 @@ export const Listing = (props) => {
 					);
 				}}
 			</Query>
-			<div>
-				Icons made by{" "}
-				<a className="nav-link"
-					href="https://www.flaticon.com/authors/smashicons"
-					title="Smashicons"
-				>
-					Smashicons
-				</a>{" "}
-				from{" "}
-				<a className="nav-link" href="https://www.flaticon.com/" title="Flaticon">
-					www.flaticon.com
-				</a>{" "}
-				is licensed by{" "}
-				<a className="nav-link"
-					href="http://creativecommons.org/licenses/by/3.0/"
-					title="Creative Commons BY 3.0"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					CC 3.0 BY
-				</a>
-			</div>
 		</React.Fragment>
 	);
 };
