@@ -7,7 +7,7 @@ import { CREATELISTING } from "../../mutations/CREATELISTING";
 import { CreateListingValidationSchema } from "../../yup/Schema";
 import { DropzoneField } from "../shared/DropzoneField";
 import "./listingform.css";
-import { LISTINGS } from "../../queries/LISTINGS";
+import { LISTINGS } from "../../queries/LISTINGS.js";
 import { MY_LISTINGS } from "../../queries/MY_LISTINGS";
 
 const CreateListingPage = () => (

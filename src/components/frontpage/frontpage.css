@@ -15,7 +15,7 @@
 }
 
 .hero {
-  background-image: url("../../images/airbnb-hero.jpg");
+  background-image: url("https://source.unsplash.com/1400x400/?house");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

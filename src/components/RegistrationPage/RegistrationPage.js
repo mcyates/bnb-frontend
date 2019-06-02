@@ -4,9 +4,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
 
-import { REGISTER } from "../../mutations/REGISTER";
+import { REGISTER } from "../../mutations/REGISTER.js"; 
 import { registrationValidationSchema } from "../../yup/Schema";
-import { LISTINGS } from "../../queries/LISTINGS";
+import { LISTINGS } from "../../queries/LISTINGS.js";
 
 export const RegistrationPage = () => (
 	<ApolloConsumer>

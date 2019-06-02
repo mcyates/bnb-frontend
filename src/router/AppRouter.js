@@ -5,7 +5,7 @@ import CreateListingPage from '../components/CreateListingPage/CreateListingPage
 import EditListingPage from '../components/EditListingPage/EditListingPage';
 import Dashboard from '../components/dashboard/Dashboard';
 
-import FrontPage from "../components/Frontpage/frontpage";
+import FrontPage from "../components/frontpage/frontpage";
 import RegistrationPage from "../components/RegistrationPage/RegistrationPage";
 import LoginPage from "../components/LoginPage/LoginPage";
 import NotFound from "../components/NotFound/NotFound";

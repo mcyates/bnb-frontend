@@ -3,9 +3,9 @@ import { Mutation, ApolloConsumer } from "react-apollo";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 
-import { LOGIN } from "../../mutations/LOGIN";
+import { LOGIN } from "../../mutations/LOGIN.js";
 import { LoginValidationSchema } from "../../yup/Schema";
-import { LISTINGS } from '../../queries/LISTINGS';
+import { LISTINGS } from '../../queries/LISTINGS.js';
 
 export const LoginPage = () => (
 	<ApolloConsumer>
