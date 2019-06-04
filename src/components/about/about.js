@@ -3,7 +3,6 @@ import React from "react";
 import bedSVG from "../../images/bed-3.svg";
 import bathSVG from "../../images/shower.svg";
 import avatarSVG from "../../images/avatar.svg";
-import reloadSVG from "../../images/reload.svg";
 import uploadSVG from "../../images/upload.svg";
 import "./about.css";
 
@@ -12,9 +11,6 @@ export const About = () => (
 		<div>
 			<span className="listing-svg-box">
 				<img className="listing-svg" src={avatarSVG} alt="guest icon" />
-			</span>
-			<span className="listing-svg-box">
-				<img className="listing-svg" src={reloadSVG} alt="reload icon" />
 			</span>
 			<span className="listing-svg-box">
 				<img className="listing-svg" src={uploadSVG} alt="reload icon" />
