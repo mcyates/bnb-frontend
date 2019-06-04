@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { navigate } from "@reach/router";
 import { DropzoneField } from "../shared/DropzoneField";
 import { LISTINGS } from "../../queries/LISTINGS";
-import { EDITLISTING } from "../../mutations/EDITLISTING";
+import { EDITLISTING } from "../../mutations/EDITLISTING.js";
 import { GET_LISTING } from "../../queries/GET_LISTING";
 import { MY_LISTINGS } from "../../queries/MY_LISTINGS";
 import "./edit.css";

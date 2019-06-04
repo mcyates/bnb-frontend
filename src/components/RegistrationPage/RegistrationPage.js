@@ -5,7 +5,7 @@ import { navigate } from "@reach/router";
 
 import { REGISTER } from "../../mutations/REGISTER";
 import { registrationValidationSchema } from "../../yup/Schema";
-import { LISTINGS } from "../../queries/LISTINGS";
+import { LISTINGS } from "../../queries/LISTINGS.js";
 
 export const RegistrationPage = () => (
 	<ApolloConsumer>
