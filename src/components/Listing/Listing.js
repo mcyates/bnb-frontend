@@ -14,6 +14,8 @@ import avatarSVG from "../../images/avatar.svg";
 import bedSVG from "../../images/bed-3.svg";
 import bathSVG from "../../images/shower.svg";
 import "./listing.css";
+import ratingUtil from "../../utils/ratings";
+import reviewUtils from "../../utils/review";
 
 export const Listing = (props) => {
 	return (
@@ -27,18 +29,12 @@ export const Listing = (props) => {
 						return `Error: ${error}`;
 					}
 					const { listing } = data;
-					if (listing.rating === undefined) {
-						listing.rating = 0;
-					}
-					let totalRating = 0;
-					let sumRating = 0;
-					if (listing.reviews.length > 0) {
-						totalRating = 5 * listing.reviews.length;
-						for (let i = 0; i < listing.reviews.length; i++) {
-							sumRating = sumRating + listing.reviews[i].rating;
-						}
-						listing.rating = (sumRating * 5) / totalRating;
-					}
+
+					const totalRating = ratingUtil.totalRating(listing, 5);
+					const sumRating = ratingUtil.sumRating(listing);
+
+					listing.rating = ratingUtil.getRating(sumRating, totalRating, 5);
+
 					return (
 						<>
 							<Query query={GET_USER}>
@@ -50,30 +46,9 @@ export const Listing = (props) => {
 										return `Error: ${error}`;
 									}
 									const { id } = data;
-									let reviewed = false;
-									let stayed = false;
-									if (listing.reviews.length > 0) {
-										for (let i = 0; i < listing.reviews.length; i++) {
-											if (listing.reviews[i].author.id === id) {
-												reviewed = true;
-											} else {
-												reviewed = false;
-											}
-										}
-									} else {
-										reviewed = true;
-									}
-									if (listing.bookings.length > 0) {
-										for (let i = 0; i < listing.bookings.length; i++) {
-											if (listing.bookings[i].author.id === id) {
-												stayed = true;
-											} else {
-												stayed = false;
-											}
-										}
-									} else {
-										stayed = false;
-									}
+									let reviewed = reviewUtils.hasReviewed(listing, id);
+									let stayed = reviewUtils.hasStayed(listing, id);
+
 									return (
 										<div className="listing">
 											{id === listing.author.id ? (

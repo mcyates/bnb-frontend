@@ -1,20 +1,25 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Router } from "@reach/router";
 
-import CreateListingPage from "../components/CreateListingPage/CreateListingPage";
-import EditListingPage from "../components/EditListingPage/EditListingPage";
-import Dashboard from "../components/dashboard/Dashboard";
-
-import FrontPage from "../components/frontpage/frontpage";
-import RegistrationPage from "../components/RegistrationPage/RegistrationPage";
-import LoginPage from "../components/LoginPage/LoginPage";
-import NotFound from "../components/NotFound/NotFound";
-import Navbar from "../components/Navbar/Navbar";
-import Listing from "../components/Listing/Listing";
-import About from "../components/about/about";
+const FrontPage = React.lazy(() => import("../components/Frontpage/frontpage"));
+const About = React.lazy(() => import("../components/about/about"));
+const CreateListingPage = React.lazy(() =>
+	import("../components/CreateListingPage/CreateListingPage")
+);
+const Dashboard = React.lazy(() => import("../components/dashboard/Dashboard"));
+const EditListingPage = React.lazy(() =>
+	import("../components/EditListingPage/EditListingPage")
+);
+const Listing = React.lazy(() => import("../components/Listing/Listing"));
+const LoginPage = React.lazy(() => import("../components/LoginPage/LoginPage"));
+const Navbar = React.lazy(() => import("../components/Navbar/Navbar"));
+const NotFound = React.lazy("../components/NotFound/NotFound.js");
+const RegistrationPage = React.lazy(() =>
+	import("../components/RegistrationPage/RegistrationPage")
+);
 
 const AppRouter = () => (
-	<>
+	<Suspense fallback={<div>Loading...</div>}>
 		<Navbar />
 		<Router className="app">
 			<NotFound default />
@@ -27,7 +32,7 @@ const AppRouter = () => (
 			<Listing path="/listing/:id" />
 			<About path="/about" />
 		</Router>
-	</>
+	</Suspense>
 );
 
 export default AppRouter;

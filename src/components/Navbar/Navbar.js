@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import "./Navbar.css";
-import airbnbsvg from "../../images/airbnb.svg";
+import bnbLogo from "../../images/bnb-logo.png";
 import Logout from "../logout/logout";
 import { Query } from "react-apollo";
 import { GET_AUTHED } from "../../queries/GET_AUTHED";
@@ -13,7 +13,7 @@ const Navbar = () => {
 				<nav className="Navbar">
 					<div className="leftCorner">
 						<Link className="link--logo" to="/">
-							<img className="Logo" src={airbnbsvg} alt="airbnb-logo" />
+							<img className="Logo" src={bnbLogo} alt="airbnb-logo" />
 						</Link>
 						<Link className="nav-link" to="/about">
 							About

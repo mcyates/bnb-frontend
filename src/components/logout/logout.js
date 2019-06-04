@@ -6,7 +6,7 @@ export const Logout = () => (
 	<ApolloConsumer>
 		{(client) => (
 			<button
-				className="btn btn-logout"
+				className="btn-logout"
 				onClick={() => {
 					localStorage.setItem("token", "");
 					client.writeData({

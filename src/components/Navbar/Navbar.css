@@ -2,6 +2,11 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.55),
+		rgba(255, 255, 255, 0)
+	);
 	height: 8rem;
 	width: 100vw;
 	max-width: 100%;
@@ -14,7 +19,7 @@
 }
 
 .link--logo {
-	width: 4rem;
+	width: 8rem;
 	align-self: flex-end;
 }
 
@@ -24,7 +29,6 @@
 }
 
 .rightCorner {
-	width: 10%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -35,7 +39,7 @@
 	padding: 1rem 4rem;
 	text-decoration: none;
 	align-self: flex-end;
-	color: #1b1b1b;
+	color: #fefefe;
 	text-align: center;
 	border-bottom: 1px solid transparent;
 	border-radius: 5px;
