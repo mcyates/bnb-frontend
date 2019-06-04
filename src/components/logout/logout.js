@@ -6,12 +6,13 @@ export const Logout = () => (
 	<ApolloConsumer>
 		{(client) => (
 			<button
+				className="btn btn-logout"
 				onClick={() => {
 					localStorage.setItem("token", "");
 					client.writeData({
 						data: {
 							isAuthed: false,
-							id: ''
+							id: ""
 						}
 					});
 					navigate("/");

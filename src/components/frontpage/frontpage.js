@@ -27,8 +27,10 @@ class FrontPage extends Component {
 						}
 
 						const { listings } = data;
-						let cursor = listings[listings.length - 1].id;
-
+						let cursor = "";
+						if (listings.length !== 0) {
+							cursor = listings[listings.length - 1].id;
+						}
 						return (
 							<React.Fragment>
 								<ListingList

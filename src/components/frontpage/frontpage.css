@@ -1,102 +1,96 @@
 /* Intro Section */
-.app {
-  margin: 0;
-}
 
 .front {
-  position: absolute;
-  /* width: 98vw; */
-  width: 100%;
-  max-width: 99.1vw;
-  /* margin-left: 1vw; */
-  margin-top: -2vw;
-  z-index: -1;
-  overflow: hidden;
+	position: absolute;
+	width: 100vw;
+	margin-top: -8rem;
+	max-width: 100%;
+	z-index: -1;
+	/* box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2); */
 }
 
 .hero {
   background-image: url("https://source.unsplash.com/1400x400/?house");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  height: 100vh;
-  width: auto;
-  overflow: hidden;
-  /* position: absolute; */
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	height: 100vh;
+	width: auto;
+	overflow: hidden;
 }
 
 .booking {
-  position: absolute;
-  top: 16%;
-  left: 8%;
-  width: 20vw;
-  max-width: 441px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 16px 40px;
-  background: rgb(255, 255, 255);
-  border-radius: 4px;
-  padding: 24px 32px 24px;
-  word-wrap: break-word;
-  color: inherit;
+	position: absolute;
+	top: 16%;
+	left: 8%;
+	width: 20vw;
+	max-width: 441px;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 16px 40px;
+	background: rgb(255, 255, 255);
+	border-radius: 4px;
+	padding: 24px 32px 24px;
+	word-wrap: break-word;
+	color: inherit;
 }
 
 .input__check__container {
-  display: table-cell;
-  margin-bottom: 8px;
-  margin-top: 8px;
+	display: table-cell;
+	margin-bottom: 8px;
+	margin-top: 8px;
 }
 
 .input__guest__container {
 }
 
 .span-block {
-  display: block;
-  margin-bottom: 8px;
-  margin-top: 8px;
-  text-transform: uppercase;
+	display: block;
+	margin-bottom: 8px;
+	margin-top: 8px;
+	text-transform: uppercase;
 }
 
 .booking__input:focus {
-  border: 1.4px solid rgb(42, 146, 134);
+	border: 1.4px solid rgb(42, 146, 134);
 }
 
 .booking__input {
-  border-radius: 4px;
-  outline: none;
-  font-size: 16px;
-  line-height: 24px;
-  color: #484848;
-  font-weight: normal;
-  background-color: transparent;
-  border: 1.4px solid #d4d4d4;
-  padding: 11px;
-  width: 100%;
+	border-radius: 4px;
+	outline: none;
+	font-size: 16px;
+	line-height: 24px;
+	color: #484848;
+	font-weight: normal;
+	background-color: transparent;
+	border: 1.4px solid #d4d4d4;
+	padding: 11px;
+	width: 100%;
 }
 
 .input__check__container__item__left {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
 }
 
 .input__check__container__item__right {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
 }
 
 #input__search__container {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 16px;
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 16px;
 }
 
 #input__search__button {
-  padding: 12px 24px 12px 24px;
-  border-radius: 4px;
-  border-color: transparent;
-  color: #fff;
-  font-size: inherit;
-  cursor: pointer;
-  line-height: 24px;
-  font-weight: 700;
-  background: #ff5a5f;
-  outline: none;
+	padding: 12px 24px 12px 24px;
+	border-radius: 4px;
+	border-color: transparent;
+	color: #fff;
+	font-size: inherit;
+	cursor: pointer;
+	line-height: 24px;
+	font-weight: 700;
+	background: #ff5a5f;
+	outline: none;
 }

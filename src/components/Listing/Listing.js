@@ -10,10 +10,14 @@ import { Booking } from "../Booking/Booking";
 import { MY_LISTINGS } from "../../queries/MY_LISTINGS";
 import { ReviewList } from "../ReviewList/ReviewList";
 import { CreateReview } from "../CreateReview/CreateReview";
+import avatarSVG from "../../images/avatar.svg";
+import bedSVG from "../../images/bed-3.svg";
+import bathSVG from "../../images/shower.svg";
+import "./listing.css";
 
 export const Listing = (props) => {
 	return (
-		<>
+		<React.Fragment>
 			<Query query={GET_LISTING} variables={{ id: props.id }}>
 				{({ loading, error, data }) => {
 					if (loading) {
@@ -29,13 +33,12 @@ export const Listing = (props) => {
 					let totalRating = 0;
 					let sumRating = 0;
 					if (listing.reviews.length > 0) {
-						totalRating = (5 * listing.reviews.length);
-						for(let i = 0; i < listing.reviews.length; i++) {
+						totalRating = 5 * listing.reviews.length;
+						for (let i = 0; i < listing.reviews.length; i++) {
 							sumRating = sumRating + listing.reviews[i].rating;
 						}
-						listing.rating = (sumRating * 5) / totalRating
+						listing.rating = (sumRating * 5) / totalRating;
 					}
-					console.log(sumRating)
 					return (
 						<>
 							<Query query={GET_USER}>
@@ -72,51 +75,91 @@ export const Listing = (props) => {
 										stayed = false;
 									}
 									return (
-										<React.Fragment>
+										<div className="listing">
 											{id === listing.author.id ? (
 												<React.Fragment>
-													<h3>{listing.name}</h3>
-													<p>Rating: {listing.rating}</p>
-													<p>{listing.category}</p>
-													<img src={listing.heroUrl} alt="hero" />
-													<p>{listing.description}</p>
-													<p>{listing.price}$ Per night.</p>
-													<p>{listing.guests} Guests</p>
-													<p>{listing.beds} Beds</p>
-													<p>{listing.baths} Baths</p>
-													<p>Amenities: {listing.amenities}</p>
-
-													<Link to={`/listing/${props.id}/edit`}>Edit</Link>
-													<Mutation
-														mutation={DELETELISTING}
-														refetchQueries={[
-															{
-																query: LISTINGS,
-																variables: { id: props.id }
-															},
-															{
-																query: MY_LISTINGS
-															}
-														]}
-													>
-														{(deleteListing, { loading, error }) => (
-															<button
-																onMouseUp={() => {
-																	deleteListing({
-																		variables: {
-																			id: props.id
-																		}
-																	});
-																	props.navigate("/dashboard");
-																}}
-															>
-																Delete
-															</button>
-														)}
-													</Mutation>
+													<div>
+														<h3>{listing.name}</h3>
+														<p>Rating: {listing.rating}</p>
+														<p>{listing.category}</p>
+														<img
+															className="listing-img"
+															src={listing.heroUrl}
+															alt="hero"
+														/>
+														<p>{listing.description}</p>
+														<p>{listing.price}$ Per night.</p>
+														<p>
+															{listing.guests}{" "}
+															<span className="listing-svg-box">
+																<img
+																	className="listing-svg"
+																	src={avatarSVG}
+																	alt="guest icon"
+																/>
+															</span>
+														</p>
+														<p>
+															{listing.beds}{" "}
+															<span className="listing-svg-box">
+																<img
+																	className="listing-svg"
+																	src={bedSVG}
+																	alt="bed icon"
+																/>
+															</span>
+														</p>
+														<p>
+															{listing.baths}{" "}
+															<span className="listing-svg-box">
+																<img
+																	className="listing-svg"
+																	src={bathSVG}
+																	alt="bath icon"
+																/>
+															</span>
+														</p>
+														<p>Amenities: {listing.amenities}</p>
+													</div>
+													<div className="listing-buttons">
+														<Link
+															className="btn"
+															to={`/listing/${props.id}/edit`}
+														>
+															Edit
+														</Link>
+														<Mutation
+															mutation={DELETELISTING}
+															refetchQueries={[
+																{
+																	query: LISTINGS,
+																	variables: { id: props.id }
+																},
+																{
+																	query: MY_LISTINGS
+																}
+															]}
+														>
+															{(deleteListing, { loading, error }) => (
+																<button
+																	className="btn"
+																	onMouseUp={() => {
+																		deleteListing({
+																			variables: {
+																				id: props.id
+																			}
+																		});
+																		props.navigate("/dashboard");
+																	}}
+																>
+																	Delete
+																</button>
+															)}
+														</Mutation>
+													</div>
 												</React.Fragment>
 											) : (
-												<>
+												<React.Fragment>
 													<Booking
 														id={props.id}
 														price={listing.price}
@@ -128,9 +171,27 @@ export const Listing = (props) => {
 													<img src={listing.heroUrl} alt="hero" />
 													<p>{listing.description}</p>
 													<p>{listing.price}$ Per night.</p>
-													<p>{listing.guests} Guests</p>
+													<p>
+														{listing.guests}{" "}
+														<span className="listing-svg-box">
+															<img
+																className="listing-svg"
+																src={avatarSVG}
+																alt="guest icon"
+															/>
+														</span>
+													</p>
 													<p>{listing.beds} Beds</p>
-													<p>{listing.baths} Baths</p>
+													<p>
+														{listing.baths}{" "}
+														<span className="listing-svg-box">
+															<img
+																className="listing-svg"
+																src={bathSVG}
+																alt="bath icon"
+															/>
+														</span>
+													</p>
 													<p>Amenities: {listing.amenities}</p>
 													{reviewed && stayed ? (
 														<CreateReview authorId={id} listingId={props.id} />
@@ -138,9 +199,9 @@ export const Listing = (props) => {
 														<p>You've already reviewed this</p>
 													)}
 													<ReviewList reviews={listing.reviews} />
-												</>
+												</React.Fragment>
 											)}
-										</React.Fragment>
+										</div>
 									);
 								}}
 							</Query>
@@ -148,7 +209,7 @@ export const Listing = (props) => {
 					);
 				}}
 			</Query>
-		</>
+		</React.Fragment>
 	);
 };
 

@@ -1,20 +1,23 @@
 import React from "react";
 import { Mutation, ApolloConsumer } from "react-apollo";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import { navigate } from "@reach/router";
 
 import { LOGIN } from "../../mutations/LOGIN.js";
 import { LoginValidationSchema } from "../../yup/Schema";
-import { LISTINGS } from '../../queries/LISTINGS.js';
+import { LISTINGS } from "../../queries/LISTINGS";
+import "./login.css";
 
 export const LoginPage = () => (
 	<ApolloConsumer>
 		{(client) => (
 			<Mutation
 				mutation={LOGIN}
-				refetchQueries={[{
-					query: LISTINGS
-				}]}
+				refetchQueries={[
+					{
+						query: LISTINGS
+					}
+				]}
 				onCompleted={(e) => {
 					localStorage.setItem("token", e.loginUser.token);
 					localStorage.setItem("id", e.loginUser.user.id);
@@ -28,7 +31,7 @@ export const LoginPage = () => (
 				}}
 			>
 				{(loginUser, { loading, error }) => (
-					<>
+					<div className="form-box">
 						<Formik
 							initialValues={{ email: "", password: "" }}
 							validationSchema={LoginValidationSchema}
@@ -46,20 +49,28 @@ export const LoginPage = () => (
 								}, 400);
 							}}
 							render={({ isSubmitting }) => (
-								<Form>
-									<label htmlFor="email">Email</label>
-									<Field type="email" name="email" autoComplete="email" />
-									<ErrorMessage name="email" component="div" />
+								<Form className="formik">
+									<div className="formik-field">
+										<label htmlFor="email">Email: </label>
+										<Field
+											className="input-text"
+											type="email"
+											name="email"
+											autoComplete="email"
+										/>
+									</div>
 
-									<label htmlFor="password">Password</label>
-									<Field
-										type="password"
-										name="password"
-										autoComplete="current-password"
-									/>
-									<ErrorMessage name="password" component="div" />
+									<div className="formik-field">
+										<label htmlFor="password">Password: </label>
+										<Field
+											className="input-text"
+											type="password"
+											name="password"
+											autoComplete="current-password"
+										/>
+									</div>
 
-									<button type="submit" disabled={isSubmitting}>
+									<button className="btn" type="submit" disabled={isSubmitting}>
 										Login
 									</button>
 								</Form>
@@ -67,7 +78,7 @@ export const LoginPage = () => (
 						/>
 						{loading && <p>Loading...</p>}
 						{error && <p>Error</p>}
-					</>
+					</div>
 				)}
 			</Mutation>
 		)}
