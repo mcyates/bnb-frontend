@@ -135,6 +135,7 @@ export const Listing = (props) => {
 												</React.Fragment>
 											) : (
 												<React.Fragment>
+												<img src={listing.heroUrl} alt="hero" />
 													<Booking
 														id={props.id}
 														price={listing.price}
@@ -143,7 +144,6 @@ export const Listing = (props) => {
 													<h3>{listing.name}</h3>
 													<p>Rating: {listing.rating}</p>
 													<p>{listing.category}</p>
-													<img src={listing.heroUrl} alt="hero" />
 													<p>{listing.description}</p>
 													<p>{listing.price}$ Per night.</p>
 													<p>
