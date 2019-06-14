@@ -25,7 +25,7 @@
 	max-width: 30rem;
 	background-color: rgba(255, 255, 255, 0.8);
 	background: blur(1rem);
-	box-shadow: rgba(0, 0, 0, 0.12) 0px 16px 40px;
+	box-shadow: var(--boxshadow);
 	border-radius: 5px;
 	padding: 2rem 3rem;
 	-webkit-border-radius: 5px;

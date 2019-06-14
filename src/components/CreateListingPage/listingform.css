@@ -45,7 +45,7 @@
 }
 
 #drop {
-	box-shadow: 0rem 0rem 2rem rgba(24, 24, 24, 0.25);
+	box-shadow: var(--boxshadow);
 	max-width: 20rem;
 	margin-bottom: 2rem;
 	background-color: #f3f3f3;

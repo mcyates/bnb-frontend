@@ -19,27 +19,27 @@ export const CreateReview = (props) => {
 				]}
 			>
 				{(createReview, { loading, error }) => (
-					<React.Fragment>
+					<div className="createReview">
 						<Formik
 							initialValues={{
-                review: "",
-                rating: 3
-              }}
-              onSubmit={(values, { setSubmitting}) => {
-                createReview({
-                  variables: {
-                    data: {
-                      text: values.review,
-                      rating: values.rating,
-                      listing: props.listingId,
-                      author: props.authorId
-                    }
-                  }
-                })
-                setTimeout(() => {
-                  setSubmitting(false);
-                }, 400)
-              }}
+								review: "",
+								rating: 3
+							}}
+							onSubmit={(values, { setSubmitting }) => {
+								createReview({
+									variables: {
+										data: {
+											text: values.review,
+											rating: values.rating,
+											listing: props.listingId,
+											author: props.authorId
+										}
+									}
+								});
+								setTimeout(() => {
+									setSubmitting(false);
+								}, 400);
+							}}
 							render={({ isSubmitting, values }) => (
 								<Form className="form">
 									<label htmlFor="review">Review: </label>
@@ -51,12 +51,17 @@ export const CreateReview = (props) => {
 									/>
 									<ErrorMessage name="review" component="div" />
 
-
-                  <label htmlFor="rating">Rating</label>
-                  <span>
-                    <Field className="input" type="number" name="rating" min="1" max="5" />
-                  </span>
-                  <ErrorMessage name="rating" component="div" />
+									<label htmlFor="rating">Rating</label>
+									<span>
+										<Field
+											className="input"
+											type="number"
+											name="rating"
+											min="1"
+											max="5"
+										/>
+									</span>
+									<ErrorMessage name="rating" component="div" />
 
 									<button
 										className="btn-form"
@@ -70,7 +75,7 @@ export const CreateReview = (props) => {
 						/>
 						{loading && <p>Loading...</p>}
 						{error && <p>error</p>}
-					</React.Fragment>
+					</div>
 				)}
 			</Mutation>
 		</React.Fragment>

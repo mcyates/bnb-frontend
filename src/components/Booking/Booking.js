@@ -7,6 +7,8 @@ import { CREATEBOOKING } from "../../mutations/CREATEBOOKING";
 import "react-datepicker/dist/react-datepicker.css";
 import { GET_LISTING } from "../../queries/GET_LISTING";
 
+import "./booking.css";
+
 export const Booking = (props) => {
 	const { bookings } = props;
 
@@ -20,7 +22,7 @@ export const Booking = (props) => {
 	});
 	let [newestDate, setNewestDate] = useState(max(...endDateArr));
 	let [endDate2, setEndDate2] = useState(addDays(new Date(newestDate), 7));
-  
+
 	return (
 		<>
 			<Mutation
@@ -40,10 +42,12 @@ export const Booking = (props) => {
 				{(createBooking, { loading, error }) => {
 					if (bookings.length === 0) {
 						return (
-							<React.Fragment>
+							<div className="listing-book">
 								{loading && <p>Loading...</p>}
 								{error && <p>error</p>}
+								{`Trip Price: ${tripPrice}$`}
 								<form
+									className="booking"
 									onSubmit={(e) => {
 										e.preventDefault();
 										createBooking({
@@ -58,6 +62,7 @@ export const Booking = (props) => {
 									}}
 								>
 									<DatePicker
+										className="booking-date"
 										selected={new Date(startDate)}
 										selectsStart
 										startDate={new Date(startDate)}
@@ -72,6 +77,7 @@ export const Booking = (props) => {
 										showDisabledMonthNavigation
 									/>
 									<DatePicker
+										className="booking-date"
 										selected={new Date(endDate)}
 										selectsEnd
 										startDate={new Date(startDate)}
@@ -82,19 +88,20 @@ export const Booking = (props) => {
 										}}
 										showDisabledMonthNavigation
 									/>
-									<button className="btn-form" type="submit">
+									<button className="booking-btn" type="submit">
 										Submit
 									</button>
 								</form>
-								{`Trip Price: ${tripPrice}$`}
-							</React.Fragment>
+							</div>
 						);
 					} else if (bookings.length > 0) {
 						return (
-							<>
+							<div className="listing-book">
 								{loading && <p>Loading...</p>}
 								{error && <p>error</p>}
+								{`Trip Price: ${tripPrice}$`}
 								<form
+									className="booking"
 									onSubmit={(e) => {
 										e.preventDefault();
 										createBooking({
@@ -135,7 +142,6 @@ export const Booking = (props) => {
 										Submit
 									</button>
 								</form>
-								{`Trip Price: ${tripPrice}$`}
 								<h4>
 									{bookings.map((booking) => {
 										return `Booked from ${format(
@@ -144,7 +150,7 @@ export const Booking = (props) => {
 										)} to ${format(booking.endDate, "MM/DD/YYYY")} \n`;
 									})}
 								</h4>
-							</>
+							</div>
 						);
 					}
 				}}

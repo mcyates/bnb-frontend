@@ -1,17 +1,29 @@
 .listing {
-	/* width: 100vw; */
-	/* max-width: 100%; */
-	min-height: 150rem;
-	display: flex;
+	min-height: 50rem;
+	width: 100vw;
+	max-width: 100%;
+	/* display: flex;
 	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
+	justify-content: space-between;
+	align-items: center; */
+	display: grid;
+	grid-row-gap: 2rem;
+	grid-template-areas:
+		". image image ."
+		". name cat ."
+		" . booking booking ."
+		". info info ."
+		" . desc desc ."
+		" . createReview createReview ."
+		". amenities reviews .";
+	justify-items: center;
 }
 
 .listing-img {
-	max-width: 50vw;
+	grid-area: image;
+	max-width: 70vw;
 	height: auto;
-	box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.15);
+	box-shadow: var(--boxshadow);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -19,9 +31,46 @@
 	-o-border-radius: 5px;
 }
 
+.listing-name {
+	grid-area: name;
+}
+
+.listing-cat {
+	grid-area: cat;
+}
+
+.listing-info {
+	grid-area: info;
+	width: 20rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.listing-desc {
+	grid-area: desc;
+}
+
+.listing-amenities {
+	grid-area: amenities;
+}
+
 .listing-buttons {
 	display: flex;
 	justify-content: space-around;
-	/* width: 20rem; */
 	width: 100%;
+}
+
+.reviews {
+	grid-area: reviews;
+}
+
+.createReview {
+	grid-area: createReview;
+}
+.listing-info-svg {
+	height: 1.8rem;
+}
+
+.listing-book {
+	grid-area: booking;
 }
