@@ -10,42 +10,42 @@ import App from "./App";
 
 import "./index.css";
 
-const URI = "http://localhost:4000/";
+const URI = "https://mattcyates.com/api";
 
-const link = createUploadLink({
+const link = createUploadLink( {
 	uri: URI
-});
-const authLink = setContext((_, { headers }) => {
-	const token = localStorage.getItem("token");
+} );
+const authLink = setContext( ( _, { headers } ) => {
+	const token = localStorage.getItem( "token" );
 
 	return {
 		headers: {
 			...headers,
-			authorization: token ? `Bearer ${token}` : ""
+			authorization: token ? `Bearer ${ token }` : ""
 		}
 	};
-});
+} );
 
-const cache = new InMemoryCache({
-	dataIdFromObject: (object) => object.key || null
-});
+const cache = new InMemoryCache( {
+	dataIdFromObject: ( object ) => object.key || null
+} );
 
-const client = new ApolloClient({
+const client = new ApolloClient( {
 	cache,
-	link: authLink.concat(link)
-});
+	link: authLink.concat( link )
+} );
 
-client.writeData({
+client.writeData( {
 	data: {
-		isAuthed: !!localStorage.getItem("token"),
-		id: localStorage.getItem("id") || "",
+		isAuthed: !!localStorage.getItem( "token" ),
+		id: localStorage.getItem( "id" ) || "",
 		listings: []
 	}
-});
+} );
 
 ReactDOM.render(
-	<ApolloProvider client={client}>
+	<ApolloProvider client={ client }>
 		<App />
 	</ApolloProvider>,
-	document.getElementById("root")
+	document.getElementById( "root" )
 );
